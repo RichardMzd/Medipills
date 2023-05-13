@@ -7,23 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C576D29FBEF21007E8827 /* ErrorAPI.swift */; };
+		539DBB5229FE75160067AB82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 539DBB5129FE75160067AB82 /* Alamofire */; };
+		539DBB5529FE75BB0067AB82 /* DrugSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539DBB5429FE75BB0067AB82 /* DrugSession.swift */; };
+		53AC9AED2A06E4660063D0B8 /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC9AEC2A06E4660063D0B8 /* blue_pill.json */; };
+		53AD1A882A050B2F00CBFD65 /* AddDrugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */; };
+		53AD1A8B2A050DAA00CBFD65 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 53AD1A8A2A050DAA00CBFD65 /* Lottie */; };
+		53AD1A952A05D23200CBFD65 /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AD1A942A05D23200CBFD65 /* syrup.json */; };
+		53AD1A992A05D7EA00CBFD65 /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AD1A982A05D7E900CBFD65 /* medicine.json */; };
 		53B394AF296F398100EA5A32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394AE296F398100EA5A32 /* AppDelegate.swift */; };
 		53B394B1296F398100EA5A32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B0296F398100EA5A32 /* SceneDelegate.swift */; };
-		53B394B3296F398100EA5A32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B2296F398100EA5A32 /* ViewController.swift */; };
+		53B394B3296F398100EA5A32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B2296F398100EA5A32 /* HomeViewController.swift */; };
 		53B394B6296F398100EA5A32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B4296F398100EA5A32 /* Main.storyboard */; };
 		53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B7296F398300EA5A32 /* Assets.xcassets */; };
 		53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */; };
+		53C0841C29FFC81D00121884 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0841B29FFC81D00121884 /* Extensions.swift */; };
+		53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53C0842129FFF0B300121884 /* Comfortaa.ttf */; };
+		53D8935229E478B300ADAC1E /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935129E478B300ADAC1E /* Drugs.swift */; };
+		53D8935429E478F000ADAC1E /* DrugService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935329E478F000ADAC1E /* DrugService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		535C576D29FBEF21007E8827 /* ErrorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
+		539DBB5429FE75BB0067AB82 /* DrugSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugSession.swift; sourceTree = "<group>"; };
+		53AC9AEC2A06E4660063D0B8 /* blue_pill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = blue_pill.json; path = ../../../Downloads/blue_pill.json; sourceTree = "<group>"; };
+		53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrugViewController.swift; sourceTree = "<group>"; };
+		53AD1A942A05D23200CBFD65 /* syrup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = syrup.json; path = ../../../Downloads/syrup.json; sourceTree = "<group>"; };
+		53AD1A982A05D7E900CBFD65 /* medicine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medicine.json; path = ../../../Downloads/medicine.json; sourceTree = "<group>"; };
 		53B394AB296F398100EA5A32 /* Medipills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medipills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B394AE296F398100EA5A32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53B394B0296F398100EA5A32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53B394B2296F398100EA5A32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53B394B2296F398100EA5A32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		53B394B5296F398100EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53B394B7296F398300EA5A32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53B394BA296F398300EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53B394BC296F398300EA5A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53C0841B29FFC81D00121884 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		53C0842129FFF0B300121884 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa.ttf; path = ../../../Downloads/Comfortaa/Comfortaa.ttf; sourceTree = "<group>"; };
+		53D8935129E478B300ADAC1E /* Drugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drugs.swift; sourceTree = "<group>"; };
+		53D8935329E478F000ADAC1E /* DrugService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +53,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539DBB5229FE75160067AB82 /* Alamofire in Frameworks */,
+				53AD1A8B2A050DAA00CBFD65 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		539DBB5329FE75250067AB82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53D8935329E478F000ADAC1E /* DrugService.swift */,
+				53D8935129E478B300ADAC1E /* Drugs.swift */,
+				539DBB5429FE75BB0067AB82 /* DrugSession.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		53B394A2296F398100EA5A32 = {
 			isa = PBXGroup;
 			children = (
@@ -56,11 +90,19 @@
 		53B394AD296F398100EA5A32 /* Medipills */ = {
 			isa = PBXGroup;
 			children = (
+				53AC9AEC2A06E4660063D0B8 /* blue_pill.json */,
+				53AD1A982A05D7E900CBFD65 /* medicine.json */,
+				539DBB5329FE75250067AB82 /* Model */,
 				53B394AE296F398100EA5A32 /* AppDelegate.swift */,
 				53B394B0296F398100EA5A32 /* SceneDelegate.swift */,
-				53B394B2296F398100EA5A32 /* ViewController.swift */,
+				53B394B2296F398100EA5A32 /* HomeViewController.swift */,
+				53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */,
+				535C576D29FBEF21007E8827 /* ErrorAPI.swift */,
+				53C0841B29FFC81D00121884 /* Extensions.swift */,
 				53B394B4296F398100EA5A32 /* Main.storyboard */,
+				53AD1A942A05D23200CBFD65 /* syrup.json */,
 				53B394B7296F398300EA5A32 /* Assets.xcassets */,
+				53C0842129FFF0B300121884 /* Comfortaa.ttf */,
 				53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */,
 				53B394BC296F398300EA5A32 /* Info.plist */,
 			);
@@ -83,6 +125,10 @@
 			dependencies = (
 			);
 			name = Medipills;
+			packageProductDependencies = (
+				539DBB5129FE75160067AB82 /* Alamofire */,
+				53AD1A8A2A050DAA00CBFD65 /* Lottie */,
+			);
 			productName = Medipills;
 			productReference = 53B394AB296F398100EA5A32 /* Medipills.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +157,10 @@
 				Base,
 			);
 			mainGroup = 53B394A2296F398100EA5A32;
+			packageReferences = (
+				539DBB5029FE75160067AB82 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				53AD1A892A050DAA00CBFD65 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 53B394AC296F398100EA5A32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +175,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AD1A952A05D23200CBFD65 /* syrup.json in Resources */,
 				53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */,
+				53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */,
 				53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */,
+				53AC9AED2A06E4660063D0B8 /* blue_pill.json in Resources */,
+				53AD1A992A05D7EA00CBFD65 /* medicine.json in Resources */,
 				53B394B6296F398100EA5A32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +192,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53B394B3296F398100EA5A32 /* ViewController.swift in Sources */,
+				53AD1A882A050B2F00CBFD65 /* AddDrugViewController.swift in Sources */,
+				53B394B3296F398100EA5A32 /* HomeViewController.swift in Sources */,
+				535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */,
 				53B394AF296F398100EA5A32 /* AppDelegate.swift in Sources */,
+				53C0841C29FFC81D00121884 /* Extensions.swift in Sources */,
+				53D8935429E478F000ADAC1E /* DrugService.swift in Sources */,
 				53B394B1296F398100EA5A32 /* SceneDelegate.swift in Sources */,
+				539DBB5529FE75BB0067AB82 /* DrugSession.swift in Sources */,
+				53D8935229E478B300ADAC1E /* Drugs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -295,6 +355,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +384,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +420,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		539DBB5029FE75160067AB82 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		53AD1A892A050DAA00CBFD65 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		539DBB5129FE75160067AB82 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 539DBB5029FE75160067AB82 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		53AD1A8A2A050DAA00CBFD65 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AD1A892A050DAA00CBFD65 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 53B394A3296F398100EA5A32 /* Project object */;
 }

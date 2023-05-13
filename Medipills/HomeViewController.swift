@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var brand: UILabel!
     @IBOutlet private weak var searchField: UITextField!
     @IBOutlet private weak var searchBtn: UIButton!
-    @IBOutlet private weak var addButton: UIBarButtonItem!
     
 
     override func viewDidLoad() {
@@ -28,16 +27,16 @@ class HomeViewController: UIViewController {
     
     @IBAction func searchMedicine(_ sender: UIButton) {
         guard let searchText = searchField.text, !searchText.isEmpty else { return }
-            
+
         DrugsService.shared.getDrugInfo(drugName: searchText) { [weak self] result in
                 switch result {
                 case .success(let drugInfo):
                     if let drug = drugInfo.first {
                         DispatchQueue.main.async {
-                            self?.medicineBrand.text = drug.genericName
+                            self?.medicineBrand.text = drug.brandNameBase.components(separatedBy: " ").first ?? ""
                             self?.brand.text = drug.activeIngredients.first?.strength
                         }
-                    } 
+                    }
                 case .failure(let error):
                     DispatchQueue.main.async {
                         self?.statusError(status: error, result: result)
@@ -69,7 +68,5 @@ class HomeViewController: UIViewController {
         dateLabel?.text = "Aujourd'hui : " + dateString
         dateLabel?.font = UIFont(name: "Comfortaa-Bold", size: 25.0)
     }
-
-
 }
 
