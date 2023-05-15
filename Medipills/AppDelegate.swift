@@ -6,16 +6,41 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate  {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        UNUserNotificationCenter.current().delegate = self
+        requestNotificationAuthorization()
         return true
     }
+    
+    func requestNotificationAuthorization() {
+           UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+               if granted {
+                   print("Notification authorization granted")
+               } else {
+                   print("Notification authorization denied")
+               }
+           }
+       }
+       
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Customize the presentation options based on your requirements
+        completionHandler([.banner, .sound])
+    }
+
+       
+       // Handle the notification when it is tapped by the user
+       func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+           // Handle the response based on the notification
+           // For example, navigate to a specific screen or perform an action
+           completionHandler()
+       }
 
     // MARK: UISceneSession Lifecycle
 

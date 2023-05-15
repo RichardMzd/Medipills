@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Lottie
+import UserNotifications
 
 class AddDrugViewController: UIViewController {
     
@@ -27,6 +28,7 @@ class AddDrugViewController: UIViewController {
     // MARK: - Properties
     private var counter = 0
     let myDatePicker = UIDatePicker()
+    let timePicker = UIDatePicker()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -34,12 +36,6 @@ class AddDrugViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(named: "blueMed")
         setupUI()
         updateLottie(segment: segmentRoute)
-        
-//        // Configure the date picker
-//        myDatePicker.datePickerMode = .date
-//        myDatePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,29 +52,55 @@ class AddDrugViewController: UIViewController {
         }
     }
     
-//  MARK: - Actions
+    //  MARK: - Actions
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-            let alert = UIAlertController(title: "Choose a date", message: nil, preferredStyle: .alert)
-            alert.view.addSubview(myDatePicker)
-            myDatePicker.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                myDatePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
-                myDatePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-            ])
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                // Update the selected date label with the date selected in the date picker
-                let formatter = DateFormatter()
-                formatter.dateStyle = .medium
-                self.dateLabel.text = formatter.string(from: self.myDatePicker.date)
-            }))
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+            
+            if sender.tag == 1 { // Date button
+                myDatePicker.datePickerMode = .date
+                alert.title = "Choose date"
+                
+                alert.view.addSubview(myDatePicker)
+                myDatePicker.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    myDatePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
+                    myDatePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                ])
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .medium
+                    let selectedDate = self.myDatePicker.date
+                    self.dateLabel.text = formatter.string(from: selectedDate)
+                    
+                    self.scheduleNotification(date: selectedDate, message: "You have some medicine to take")
+                }))
+            } else if sender.tag == 2 { // Time button
+                timePicker.datePickerMode = .time
+                alert.title = "Choose time"
+                
+                alert.view.addSubview(timePicker)
+                timePicker.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
+                    timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                ])
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "hh:mm a"
+                    let selectedTime = self.timePicker.date
+                    let selectedTimeFormatted = formatter.string(from: selectedTime)
+                    
+                    self.timeLabel.text = selectedTimeFormatted
+                    self.scheduleNotification(date: selectedTime, message: "You have some medicine to take")
+                }))
+            }
+            
             present(alert, animated: true)
-        }
-
-    @objc func dateChanged() {
-        print(myDatePicker.date)
-
     }
+
     
     @IBAction func segmentClicked(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -95,10 +117,41 @@ class AddDrugViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    func scheduleNotification(date: Date, message: String) {
+        let content = UNMutableNotificationContent()
+        content.title = "Medipills"
+        content.body = message
+        content.sound = .default
+        
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+        let timeComponents = calendar.dateComponents([.hour, .minute], from: date)
+        
+        var combinedComponents = DateComponents()
+        combinedComponents.year = dateComponents.year
+        combinedComponents.month = dateComponents.month
+        combinedComponents.day = dateComponents.day
+        combinedComponents.hour = timeComponents.hour
+        combinedComponents.minute = timeComponents.minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: combinedComponents, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "notificationIdentifier", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error)")
+            } else {
+                print("Notification scheduled successfully.")
+            }
+        }
+    }
+    
     private func setupUI() {
         setAnimation(lottie: mainAnimation, name: "medicine")
         counterLabel.text = String(counter)
-
+        
         for button in buttonsStackView.subviews where button is UIButton {
             button.layer.cornerRadius = button.frame.width / 2
             button.clipsToBounds = true
@@ -161,7 +214,6 @@ class AddDrugViewController: UIViewController {
     private func setDrugAnimation(lottieName: String) {
         setAnimation(lottie: drugAnimation, name: lottieName)
     }
-
-
+    
 }
 
