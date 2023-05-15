@@ -22,7 +22,7 @@ class DrugsService {
 
         let headers: HTTPHeaders = [
             "x-rapidapi-host": "drug-info-and-price-history.p.rapidapi.com",
-            "x-rapidapi-key": "2d7c23af45msh07c02b88e450484p18205bjsn0d52627e5b59"
+            "x-rapidapi-key": Config.rapidAPIKey
         ]
 
         let url = URL(string: "https://drug-info-and-price-history.p.rapidapi.com/1/druginfo?drug=\(drugName)")!

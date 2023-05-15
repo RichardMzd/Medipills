@@ -56,51 +56,51 @@ class AddDrugViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        if sender.tag == 1 { // Date button
+            myDatePicker.datePickerMode = .date
+            alert.title = "Choose date"
             
-            if sender.tag == 1 { // Date button
-                myDatePicker.datePickerMode = .date
-                alert.title = "Choose date"
-                
-                alert.view.addSubview(myDatePicker)
-                myDatePicker.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    myDatePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
-                    myDatePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-                ])
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    let formatter = DateFormatter()
-                    formatter.dateStyle = .medium
-                    let selectedDate = self.myDatePicker.date
-                    self.dateLabel.text = formatter.string(from: selectedDate)
-                    
-                    self.scheduleNotification(date: selectedDate, message: "You have some medicine to take")
-                }))
-            } else if sender.tag == 2 { // Time button
-                timePicker.datePickerMode = .time
-                alert.title = "Choose time"
-                
-                alert.view.addSubview(timePicker)
-                timePicker.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
-                    timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-                ])
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "hh:mm a"
-                    let selectedTime = self.timePicker.date
-                    let selectedTimeFormatted = formatter.string(from: selectedTime)
-                    
-                    self.timeLabel.text = selectedTimeFormatted
-                    self.scheduleNotification(date: selectedTime, message: "You have some medicine to take")
-                }))
-            }
+            alert.view.addSubview(myDatePicker)
+            myDatePicker.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                myDatePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
+                myDatePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            ])
             
-            present(alert, animated: true)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                let formatter = DateFormatter()
+                formatter.dateStyle = .medium
+                let selectedDate = self.myDatePicker.date
+                self.dateLabel.text = formatter.string(from: selectedDate)
+                
+                self.scheduleNotification(date: selectedDate, message: "You have some medicine to take")
+            }))
+        } else if sender.tag == 2 { // Time button
+            timePicker.datePickerMode = .time
+            alert.title = "Choose time"
+            
+            alert.view.addSubview(timePicker)
+            timePicker.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
+                timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            ])
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "hh:mm a"
+                let selectedTime = self.timePicker.date
+                let selectedTimeFormatted = formatter.string(from: selectedTime)
+                
+                self.timeLabel.text = selectedTimeFormatted
+                self.scheduleNotification(date: selectedTime, message: "You have some medicine to take")
+            }))
+        }
+        
+        present(alert, animated: true)
     }
-
+    
     
     @IBAction func segmentClicked(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
