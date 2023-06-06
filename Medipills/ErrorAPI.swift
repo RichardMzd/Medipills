@@ -13,6 +13,7 @@ enum ErrorAPI: Error {
     case decoding
     case server
     case network
+    case jsonFileNotFound
     
     var description : String {
         switch self {
@@ -24,6 +25,9 @@ enum ErrorAPI: Error {
             
         case ErrorAPI.server:
             return "L'accès au serveur a échoué"
+        
+        case ErrorAPI.jsonFileNotFound:
+            return "JSON Introuvable"
         }
     }
 }

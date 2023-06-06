@@ -11,43 +11,36 @@ import Alamofire
 class DrugsService {
     
     static let shared = DrugsService()
-    private var task: DataRequest?
-    private let session: DrugsProtocol
+   
+    private init() {}
+    
+    func getValueFromLocalJSON(medic: String, completion: @escaping (Result<Bool, ErrorAPI>) -> Void) {
+            guard let url = Bundle.main.url(forResource: "medic", withExtension: "json") else {
+                completion(.failure(ErrorAPI.jsonFileNotFound))
+                return
+            }
 
-    init(session: DrugsProtocol = DrugSession()) {
-        self.session = session
-    }
+            do {
+                let jsonData = try Data(contentsOf: url)
+                let drugs = try JSONDecoder().decode([Drugs].self, from: jsonData)
 
-    func getDrugInfo(drugName: String, completion: @escaping (Result<[Drugs], ErrorAPI>) -> Void) {
-
-        let headers: HTTPHeaders = [
-            "x-rapidapi-host": "drug-info-and-price-history.p.rapidapi.com",
-            "x-rapidapi-key": Config.rapidAPIKey
-        ]
-
-        let url = URL(string: "https://drug-info-and-price-history.p.rapidapi.com/1/druginfo?drug=\(drugName)")!
-
-        task = session.request(url: url, headers: headers) { dataResponse in
-
-            switch dataResponse.result {
-            case .success(let data):
-                do {
-                    let responseJSON = try JSONDecoder().decode([Drugs].self, from: data)
-                    completion(.success(responseJSON))
-                    print(responseJSON)
-                } catch {
-                    print("Failed to decode response: \(error.localizedDescription)")
+                let result = drugs.first(where: { drug in
+                    if let nomCourt = drug.nomCourt {
+                        return nomCourt.lowercased().contains(medic.lowercased())
+                    }
+                    return false
+                })
+                
+                if let _ = result {
+                    completion(.success(true))
+                    return
+                } else {
                     completion(.failure(.decoding))
                 }
-
-            case .failure(let error):
-                if error.isExplicitlyCancelledError {
-                    // ignore cancellation errors
-                    return
-                }
-                print("Error in network request: \(error.localizedDescription)")
-                completion(.failure(.network))
+            } catch {
+                completion(.failure(.decoding))
             }
         }
-    }
 }
+
+

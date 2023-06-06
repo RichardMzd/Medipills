@@ -24,7 +24,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medipills" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMA-v5-UPi">
                                 <rect key="frame" x="100" y="527.66666666666663" width="193" height="40.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="36"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.1141156629" green="0.083968527619999997" blue="0.3725717664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

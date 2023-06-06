@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension HomeViewController {
+extension AddDrugViewController {
     //method to detect error in API Call request
        func alertServerAccess(error: String) {
            let alert = UIAlertController(title: "Erreur", message: error, preferredStyle: .alert)
