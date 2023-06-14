@@ -11,12 +11,14 @@
 		537EFDDF2A17C22F004E5152 /* DrugsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */; };
 		537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */; };
 		539DBB5229FE75160067AB82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 539DBB5129FE75160067AB82 /* Alamofire */; };
-		53AC9AED2A06E4660063D0B8 /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC9AEC2A06E4660063D0B8 /* blue_pill.json */; };
+		53A8A20F2A38980D00C29E52 /* MedipillsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A20D2A38980D00C29E52 /* MedipillsModel.xcdatamodeld */; };
+		53A8A2112A389C9000C29E52 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2102A389C9000C29E52 /* CoreDataStack.swift */; };
+		53A8A2132A38ABD400C29E52 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2122A38ABD400C29E52 /* CoreDataManager.swift */; };
+		53A8A2152A38AC3800C29E52 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2142A38AC3800C29E52 /* Drug.swift */; };
 		53AD1A882A050B2F00CBFD65 /* AddDrugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */; };
 		53AD1A8B2A050DAA00CBFD65 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 53AD1A8A2A050DAA00CBFD65 /* Lottie */; };
-		53AD1A952A05D23200CBFD65 /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AD1A942A05D23200CBFD65 /* syrup.json */; };
-		53AD1A992A05D7EA00CBFD65 /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AD1A982A05D7E900CBFD65 /* medicine.json */; };
 		53AFAD5B2A25FDE80021528A /* medic.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AFAD5A2A25FDE80021528A /* medic.json */; };
+		53B2FF252A39E8DD00179D39 /* completing-tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B2FF242A39E8DD00179D39 /* completing-tasks.json */; };
 		53B394AF296F398100EA5A32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394AE296F398100EA5A32 /* AppDelegate.swift */; };
 		53B394B1296F398100EA5A32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B0296F398100EA5A32 /* SceneDelegate.swift */; };
 		53B394B3296F398100EA5A32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B2296F398100EA5A32 /* HomeViewController.swift */; };
@@ -24,6 +26,9 @@
 		53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B7296F398300EA5A32 /* Assets.xcassets */; };
 		53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */; };
 		53B5EBA02A1685E00063E57D /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */; };
+		53BCB97E2A377A2400C37EDD /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB97D2A377A2400C37EDD /* blue_pill.json */; };
+		53BCB9802A377A3F00C37EDD /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB97F2A377A3F00C37EDD /* medicine.json */; };
+		53BCB9842A377A6000C37EDD /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB9832A377A6000C37EDD /* syrup.json */; };
 		53C0841C29FFC81D00121884 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0841B29FFC81D00121884 /* Extensions.swift */; };
 		53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53C0842129FFF0B300121884 /* Comfortaa.ttf */; };
 		53D8935229E478B300ADAC1E /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935129E478B300ADAC1E /* Drugs.swift */; };
@@ -34,11 +39,13 @@
 		535C576D29FBEF21007E8827 /* ErrorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
 		537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsTableViewCell.swift; sourceTree = "<group>"; };
 		537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrugsTableViewCell.xib; sourceTree = "<group>"; };
-		53AC9AEC2A06E4660063D0B8 /* blue_pill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = blue_pill.json; path = ../../../Downloads/blue_pill.json; sourceTree = "<group>"; };
+		53A8A20E2A38980D00C29E52 /* MedipillsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MedipillsModel.xcdatamodel; sourceTree = "<group>"; };
+		53A8A2102A389C9000C29E52 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		53A8A2122A38ABD400C29E52 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		53A8A2142A38AC3800C29E52 /* Drug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
 		53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrugViewController.swift; sourceTree = "<group>"; };
-		53AD1A942A05D23200CBFD65 /* syrup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = syrup.json; path = ../../../Downloads/syrup.json; sourceTree = "<group>"; };
-		53AD1A982A05D7E900CBFD65 /* medicine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medicine.json; path = ../../../Downloads/medicine.json; sourceTree = "<group>"; };
 		53AFAD5A2A25FDE80021528A /* medic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medic.json; path = ../../../../Downloads/medic.json; sourceTree = "<group>"; };
+		53B2FF242A39E8DD00179D39 /* completing-tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "completing-tasks.json"; path = "../../../../Downloads/completing-tasks.json"; sourceTree = "<group>"; };
 		53B394AB296F398100EA5A32 /* Medipills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medipills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B394AE296F398100EA5A32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53B394B0296F398100EA5A32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +55,9 @@
 		53B394BA296F398300EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53B394BC296F398300EA5A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		53BCB97D2A377A2400C37EDD /* blue_pill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = blue_pill.json; path = ../../../../Downloads/blue_pill.json; sourceTree = "<group>"; };
+		53BCB97F2A377A3F00C37EDD /* medicine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medicine.json; path = ../../../../Downloads/medicine.json; sourceTree = "<group>"; };
+		53BCB9832A377A6000C37EDD /* syrup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = syrup.json; path = ../../../../Downloads/syrup.json; sourceTree = "<group>"; };
 		53C0841B29FFC81D00121884 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		53C0842129FFF0B300121884 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa.ttf; path = ../../../Downloads/Comfortaa/Comfortaa.ttf; sourceTree = "<group>"; };
 		53D8935129E478B300ADAC1E /* Drugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drugs.swift; sourceTree = "<group>"; };
@@ -70,6 +80,7 @@
 		539DBB5329FE75250067AB82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				53BCB9862A3783D500C37EDD /* CoreData */,
 				53AFAD5A2A25FDE80021528A /* medic.json */,
 				53D8935329E478F000ADAC1E /* DrugService.swift */,
 				53D8935129E478B300ADAC1E /* Drugs.swift */,
@@ -106,24 +117,52 @@
 		53B394AD296F398100EA5A32 /* Medipills */ = {
 			isa = PBXGroup;
 			children = (
-				53AC9AEC2A06E4660063D0B8 /* blue_pill.json */,
-				53AD1A982A05D7E900CBFD65 /* medicine.json */,
 				539DBB5329FE75250067AB82 /* Model */,
-				53B394AE296F398100EA5A32 /* AppDelegate.swift */,
+				53BCB9852A37837500C37EDD /* Controllers */,
 				53A571162A13E5E20063AA00 /* CustomCells */,
+				53BCB9782A37781D00C37EDD /* Animations */,
 				53B394B0296F398100EA5A32 /* SceneDelegate.swift */,
-				53B394B2296F398100EA5A32 /* HomeViewController.swift */,
-				53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */,
 				535C576D29FBEF21007E8827 /* ErrorAPI.swift */,
 				53C0841B29FFC81D00121884 /* Extensions.swift */,
+				53B394AE296F398100EA5A32 /* AppDelegate.swift */,
 				53B394B4296F398100EA5A32 /* Main.storyboard */,
-				53AD1A942A05D23200CBFD65 /* syrup.json */,
 				53B394B7296F398300EA5A32 /* Assets.xcassets */,
 				53C0842129FFF0B300121884 /* Comfortaa.ttf */,
 				53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */,
 				53B394BC296F398300EA5A32 /* Info.plist */,
 			);
 			path = Medipills;
+			sourceTree = "<group>";
+		};
+		53BCB9782A37781D00C37EDD /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				53B2FF242A39E8DD00179D39 /* completing-tasks.json */,
+				53BCB9832A377A6000C37EDD /* syrup.json */,
+				53BCB97F2A377A3F00C37EDD /* medicine.json */,
+				53BCB97D2A377A2400C37EDD /* blue_pill.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		53BCB9852A37837500C37EDD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53B394B2296F398100EA5A32 /* HomeViewController.swift */,
+				53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53BCB9862A3783D500C37EDD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				53A8A20D2A38980D00C29E52 /* MedipillsModel.xcdatamodeld */,
+				53A8A2102A389C9000C29E52 /* CoreDataStack.swift */,
+				53A8A2122A38ABD400C29E52 /* CoreDataManager.swift */,
+				53A8A2142A38AC3800C29E52 /* Drug.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,13 +231,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B2FF252A39E8DD00179D39 /* completing-tasks.json in Resources */,
 				53AFAD5B2A25FDE80021528A /* medic.json in Resources */,
-				53AD1A952A05D23200CBFD65 /* syrup.json in Resources */,
+				53BCB9842A377A6000C37EDD /* syrup.json in Resources */,
 				53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */,
 				53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */,
+				53BCB9802A377A3F00C37EDD /* medicine.json in Resources */,
 				53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */,
-				53AC9AED2A06E4660063D0B8 /* blue_pill.json in Resources */,
-				53AD1A992A05D7EA00CBFD65 /* medicine.json in Resources */,
+				53BCB97E2A377A2400C37EDD /* blue_pill.json in Resources */,
 				53B394B6296F398100EA5A32 /* Main.storyboard in Resources */,
 				537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */,
 			);
@@ -214,8 +254,12 @@
 				53AD1A882A050B2F00CBFD65 /* AddDrugViewController.swift in Sources */,
 				53B394B3296F398100EA5A32 /* HomeViewController.swift in Sources */,
 				535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */,
+				53A8A2112A389C9000C29E52 /* CoreDataStack.swift in Sources */,
 				53B394AF296F398100EA5A32 /* AppDelegate.swift in Sources */,
+				53A8A2152A38AC3800C29E52 /* Drug.swift in Sources */,
 				53C0841C29FFC81D00121884 /* Extensions.swift in Sources */,
+				53A8A20F2A38980D00C29E52 /* MedipillsModel.xcdatamodeld in Sources */,
+				53A8A2132A38ABD400C29E52 /* CoreDataManager.swift in Sources */,
 				53D8935429E478F000ADAC1E /* DrugService.swift in Sources */,
 				53B394B1296F398100EA5A32 /* SceneDelegate.swift in Sources */,
 				53D8935229E478B300ADAC1E /* Drugs.swift in Sources */,
@@ -472,6 +516,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		53A8A20D2A38980D00C29E52 /* MedipillsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				53A8A20E2A38980D00C29E52 /* MedipillsModel.xcdatamodel */,
+			);
+			currentVersion = 53A8A20E2A38980D00C29E52 /* MedipillsModel.xcdatamodel */;
+			path = MedipillsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 53B394A3296F398100EA5A32 /* Project object */;
 }

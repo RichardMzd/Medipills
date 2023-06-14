@@ -41,7 +41,13 @@ class DrugsTableViewCell: UITableViewCell {
     
     var pillsOrSpoonText: String? {
         didSet {
-            pillsOrSpoon.text = (pillsOrSpoonText ?? "") + "comprimé"
+            if let text = pillsOrSpoonText {
+                let replacedText = text.replacingOccurrences(of: "Cp", with: "Comprimé")
+                    .replacingOccurrences(of: "Csp", with: "Cuillère à soupe")
+                pillsOrSpoon.text = replacedText
+            } else {
+                pillsOrSpoon.text = nil
+            }
         }
     }
 }

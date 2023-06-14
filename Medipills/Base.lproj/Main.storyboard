@@ -84,6 +84,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdo-ZF-gEw" userLabel="Main View">
                                 <rect key="frame" x="0.0" y="283" width="430" height="649"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEt-qZ-UfC" customClass="LottieAnimationView" customModule="Lottie">
+                                        <rect key="frame" x="95" y="90" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rien à prendre pour aujourd'hui" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYf-23-IrK">
                                         <rect key="frame" x="30" y="30" width="370" height="589"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="20"/>
@@ -142,6 +146,7 @@
                         <outlet property="collectionView" destination="CCV-cg-JLc" id="MwJ-JU-BiS"/>
                         <outlet property="drugTableView" destination="1Oh-sO-ekv" id="U3P-Zy-26m"/>
                         <outlet property="labeltext" destination="tYf-23-IrK" id="1uo-me-jiX"/>
+                        <outlet property="lottieAnimation" destination="YEt-qZ-UfC" id="EYc-CO-8uv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

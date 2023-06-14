@@ -19,9 +19,10 @@ struct Drugs: Codable {
     }
 }
 
-struct LocalDrug {
+struct LocalDrug: Equatable {
     var name: String
     var dose: String
     var time: String
     var quantity: String
+    var date: Date
 }

@@ -7,12 +7,13 @@
 
 import UIKit
 import UserNotifications
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate  {
 
-
-
+    lazy var coreDataStack = CoreDataStack(name: "MedipillsModel")
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
         requestNotificationAuthorization()

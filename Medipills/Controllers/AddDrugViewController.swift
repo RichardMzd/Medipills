@@ -11,7 +11,7 @@ import Lottie
 import UserNotifications
 
 protocol AddDrugDelegate: AnyObject {
-    func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?)
+    func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?, date: Date?)
 }
 
 class AddDrugViewController: UIViewController {
@@ -33,6 +33,10 @@ class AddDrugViewController: UIViewController {
     private var timeText: String?
     private var pillsOrSpoonText: String?
     
+    private var timer: Timer?
+
+    var selectedDate: Date?
+    
     let myDatePicker = UIDatePicker()
     let timePicker = UIDatePicker()
     weak var delegate: AddDrugDelegate?
@@ -45,12 +49,20 @@ class AddDrugViewController: UIViewController {
         setupUI()
         updateLottie(segment: segmentRoute)
         displayDateTime()
+        startTimer()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setupUI()
         updateLottie(segment: segmentRoute)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
+    }
+
     
     // MARK: - Actions
     @IBAction func updateCounter(_ sender: UIButton) {
@@ -62,22 +74,33 @@ class AddDrugViewController: UIViewController {
     }
     
     @IBAction func addDrug(_ sender: Any) {
-        guard let searchText = brandTextField.text, !searchText.isEmpty else { return }
-        
-        DrugsService.shared.getValueFromLocalJSON(medic: searchText) { [weak self] result in
-            switch result {
-            case .success:
-                self?.delegate?.didAddDrug(drug: searchText,
-                                                   dosageText: self?.dosageTextfield.text,
-                                                   timeText: self?.timeLabel.text,
-                                                   pillsOrSpoonText: self?.counterLabel.text)
-                        self?.navigationController?.popViewController(animated: true)
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.statusError(status: error, result: result)
+        showMessageIfNoInfo()
+            DrugsService.shared.getValueFromLocalJSON(medic: brandTextField.text!) { [weak self] result in
+                switch result {
+                case .success:
+                    if self?.selectedDate == nil {
+                        // Si aucune date n'est sélectionnée, utilisez la date actuellement affichée dans dateLabel
+                        let formatter = DateFormatter()
+                        formatter.dateStyle = .medium
+                        formatter.dateFormat = "d MMM yyyy"
+                        formatter.locale = Locale(identifier: "fr_FR")
+                        if let dateString = self?.dateLabel.text, let date = formatter.date(from: dateString) {
+                            self?.selectedDate = date
+                        }
+                    }
+                    
+                    self?.delegate?.didAddDrug(drug: self?.brandTextField.text ?? "",
+                                               dosageText: self?.dosageTextfield.text,
+                                               timeText: self?.timeLabel.text,
+                                               pillsOrSpoonText: self?.counterLabel.text,
+                                               date: self?.selectedDate)
+                    self?.navigationController?.popViewController(animated: true)
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.statusError(status: error, result: result)
+                    }
                 }
             }
-        }
     }
     
     
@@ -87,6 +110,7 @@ class AddDrugViewController: UIViewController {
         if sender.tag == 1 { // Date button
             myDatePicker.datePickerMode = .date
             alert.title = "Choisir la date"
+            myDatePicker.locale = Locale(identifier: "fr_FR")
             
             alert.view.addSubview(myDatePicker)
             myDatePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -98,33 +122,48 @@ class AddDrugViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 let formatter = DateFormatter()
                 formatter.dateStyle = .medium
+                formatter.dateFormat = "d MMM yyyy"
+                formatter.locale = Locale(identifier: "fr_FR")
                 let selectedDate = self.myDatePicker.date
                 self.dateLabel.text = formatter.string(from: selectedDate)
-                
+                self.selectedDate = selectedDate
+
                 self.scheduleNotification(date: selectedDate, message: "Vous avez des médicaments à prendre")
             }))
         } else if sender.tag == 2 { // Time button
             timePicker.datePickerMode = .time
-            alert.title = "Choisissez l'heure"
+              alert.title = "Choisissez l'heure"
+              
+              // Paramétrer le datePicker avec une heure avancée de 10 minutes
+              let calendar = Calendar.current
+              let currentDate = Date()
+              let advancedDate = calendar.date(byAdding: .minute, value: 5, to: currentDate)
+              if let advancedDate = advancedDate {
+                  timePicker.date = advancedDate
+              }
             
-            alert.view.addSubview(timePicker)
-            timePicker.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
-                timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-            ])
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                let formatter = DateFormatter()
-                formatter.dateFormat = "HH'h'mm"
-                let selectedTime = self.timePicker.date
-                let selectedTimeFormatted = formatter.string(from: selectedTime)
-                
-                self.timeLabel.text = selectedTimeFormatted
-                self.scheduleNotification(date: selectedTime, message: "Vous avez des médicaments à prendre")
-            }))
+            timePicker.minuteInterval = 5
+
+              
+              let formatter = DateFormatter()
+              formatter.dateFormat = "HH:mm"
+              formatter.locale = Locale(identifier: "fr_FR")
+              
+              alert.view.addSubview(timePicker)
+              timePicker.translatesAutoresizingMaskIntoConstraints = false
+              NSLayoutConstraint.activate([
+                  timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
+                  timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+              ])
+              
+              alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                  let selectedTime = self.timePicker.date
+                  let selectedTimeFormatted = formatter.string(from: selectedTime)
+                  
+                  self.timeLabel.text = selectedTimeFormatted
+                  self.scheduleNotification(date: selectedTime, message: "Vous avez des médicaments à prendre")
+              }))
         }
-        
         present(alert, animated: true)
     }
     
@@ -144,6 +183,36 @@ class AddDrugViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
+    
+    private func showMessage(_ message: String) {
+        // Affichez le message d'erreur à l'utilisateur, par exemple :
+        let alertController = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showMessageIfNoInfo() {
+        
+        let fields: [(textField: UITextField, message: String)] = [
+            (textField: brandTextField, message: "marque"),
+            (textField: dosageTextfield, message: "dosage")
+        ]
+
+        for field in fields {
+            guard let text = field.textField.text, !text.isEmpty else {
+                showMessage("Veuillez remplir le champ \(field.message).")
+                return
+            }
+        }
+        
+        guard let counterText = counterLabel.text, !counterText.isEmpty else { return }
+
+        if counterText == "0 Cp" || counterText == "0 Csp" {
+            showMessage("La valeur du champ counter doit être supérieure à zéro.")
+            return
+        }
+    }
     
     func statusError(status: ErrorAPI, result: Result<Bool, ErrorAPI>) {
         switch result {
@@ -169,9 +238,9 @@ class AddDrugViewController: UIViewController {
         counter += 1
         
         if segmentRoute.selectedSegmentIndex == 1 {
-            counterLabel.text = "\(counter) csp"
+            counterLabel.text = "\(counter) Csp"
         } else {
-            counterLabel.text = "\(counter) cp"
+            counterLabel.text = "\(counter) Cp"
         }
     }
     
@@ -180,9 +249,9 @@ class AddDrugViewController: UIViewController {
             counter -= 1
             
             if segmentRoute.selectedSegmentIndex == 1 {
-                counterLabel.text = "\(counter) csp"
+                counterLabel.text = "\(counter) Csp"
             } else {
-                counterLabel.text = "\(counter) cp"
+                counterLabel.text = "\(counter) Cp"
             }
         }
     }
@@ -190,9 +259,9 @@ class AddDrugViewController: UIViewController {
     private func resetCounter() {
         counter = 0
         if segmentRoute.selectedSegmentIndex == 1 {
-            counterLabel.text = "\(counter) csp"
+            counterLabel.text = "\(counter) Csp"
         } else {
-            counterLabel.text = "\(counter) cp"
+            counterLabel.text = "\(counter) Cp"
         }
     }
     
@@ -200,10 +269,10 @@ class AddDrugViewController: UIViewController {
         switch segment.selectedSegmentIndex {
         case 0:
             setDrugAnimation(lottieName: "blue_pill")
-            counterLabel.text = "\(counter) cp"
+            counterLabel.text = "\(counter) Cp"
         case 1:
             setDrugAnimation(lottieName: "syrup")
-            counterLabel.text = "\(counter) csp"
+            counterLabel.text = "\(counter) Csp"
         default:
             break
         }
@@ -222,14 +291,44 @@ class AddDrugViewController: UIViewController {
         setAnimation(lottie: drugAnimation, name: lottieName)
     }
     
+    private func startTimer() {
+        // Arrêter la minuterie existante si elle est en cours
+        stopTimer()
+        
+        // Démarrer une minuterie qui se déclenche toutes les secondes
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
+            self?.displayDateTime()
+        }
+        
+        // Mettre à jour immédiatement l'affichage de l'heure
+        displayDateTime()
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     private func displayDateTime() {
+        let calendar = Calendar.current
+        var currentDate = Date()
+        
+        // Récupérer les composants de l'heure actuelle
+        let currentHour = calendar.component(.hour, from: currentDate)
+        let currentMinute = calendar.component(.minute, from: currentDate)
+        
+        // Arrondir les minutes vers le haut à l'intervalle de 5 minutes suivant
+        let roundedMinutes = Int(ceil(Double(currentMinute) / 5.0) * 5.0)
+        currentDate = calendar.date(bySettingHour: currentHour, minute: roundedMinutes, second: 0, of: currentDate) ?? currentDate
+        
+        // Formatter pour l'affichage de la date
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
+        dateFormatter.locale = Locale(identifier: "fr_FR")
         
+        // Formatter pour l'affichage de l'heure
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH'h'mm" // Mettre le format souhaité
-        
-        let currentDate = Date()
+        timeFormatter.dateFormat = "HH:mm"
         
         let dateString = dateFormatter.string(from: currentDate)
         let timeString = timeFormatter.string(from: currentDate)
@@ -237,7 +336,6 @@ class AddDrugViewController: UIViewController {
         dateLabel.text = dateString
         timeLabel.text = timeString
     }
-
     
     func scheduleNotification(date: Date, message: String) {
         let content = UNMutableNotificationContent()
