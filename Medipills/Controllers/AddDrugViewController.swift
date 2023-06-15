@@ -79,7 +79,7 @@ class AddDrugViewController: UIViewController {
                 switch result {
                 case .success:
                     if self?.selectedDate == nil {
-                        // Si aucune date n'est sélectionnée, utilisez la date actuellement affichée dans dateLabel
+                        // If no date is selected, use the date currently displayed in dateLabel
                         let formatter = DateFormatter()
                         formatter.dateStyle = .medium
                         formatter.dateFormat = "d MMM yyyy"
