@@ -11,10 +11,6 @@
 		537EFDDF2A17C22F004E5152 /* DrugsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */; };
 		537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */; };
 		5392CA532A3B85CC00FEE7CD /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB9832A377A6000C37EDD /* syrup.json */; };
-		5392CA542A3BC07600FEE7CD /* completing-tasks.json in Sources */ = {isa = PBXBuildFile; fileRef = 53B2FF242A39E8DD00179D39 /* completing-tasks.json */; };
-		5392CA552A3BC07600FEE7CD /* syrup.json in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB9832A377A6000C37EDD /* syrup.json */; };
-		5392CA562A3BC07600FEE7CD /* medicine.json in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB97F2A377A3F00C37EDD /* medicine.json */; };
-		5392CA572A3BC07600FEE7CD /* blue_pill.json in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB97D2A377A2400C37EDD /* blue_pill.json */; };
 		539DBB5229FE75160067AB82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 539DBB5129FE75160067AB82 /* Alamofire */; };
 		53A8A20F2A38980D00C29E52 /* MedipillsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A20D2A38980D00C29E52 /* MedipillsModel.xcdatamodeld */; };
 		53A8A2112A389C9000C29E52 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2102A389C9000C29E52 /* CoreDataStack.swift */; };
@@ -357,6 +353,10 @@
 			inputPaths = (
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"cp \"${SRCROOT}/syrup.json\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/syrup.json\"",
+				"cp \"${SRCROOT}/medicine.json\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/medicine.json\"",
+				"cp \"${SRCROOT}/medic.json\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/medic.json\"",
+				"cp \"${SRCROOT}/completing-tasks.json\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/completing-tasks.json\"",
 			);
 			outputFileListPaths = (
 			);
@@ -384,10 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5392CA542A3BC07600FEE7CD /* completing-tasks.json in Sources */,
-				5392CA552A3BC07600FEE7CD /* syrup.json in Sources */,
-				5392CA562A3BC07600FEE7CD /* medicine.json in Sources */,
-				5392CA572A3BC07600FEE7CD /* blue_pill.json in Sources */,
 				53AD1A882A050B2F00CBFD65 /* AddDrugViewController.swift in Sources */,
 				53B394B3296F398100EA5A32 /* HomeViewController.swift in Sources */,
 				535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */,
