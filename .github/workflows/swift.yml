@@ -27,8 +27,8 @@ jobs:
 
     # We build the app, to ensure it's working.
     - name: Build Medipills
-      run: xcodebuild -scheme Medipills -project Medipills/Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
+      run: xcodebuild -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
 
     # Unit Testing
     - name: Run Unit Tests
-      run: xcodebuild test -scheme Medipills -project Medipills/Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
+      run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
