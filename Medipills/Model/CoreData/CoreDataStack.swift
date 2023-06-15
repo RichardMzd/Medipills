@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 
-class CoreDataStack {
+open class CoreDataStack {
     
     // MARK: - Propreties
         
@@ -22,11 +22,11 @@ class CoreDataStack {
         }
 
     // MARK: - Singleton
-    lazy var persistentContainer: NSPersistentContainer = {
+    public lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: name)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
-                fatalError("Erreur non résolue : \(error), \(error.userInfo)")
+                fatalError("Unresolved error : \(error), \(error.userInfo)")
             }
         })
         return container

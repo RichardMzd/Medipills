@@ -16,12 +16,13 @@ protocol AddDrugDelegate: AnyObject {
 
 class AddDrugViewController: UIViewController {
     
+//  MARK: - Outlets
     @IBOutlet private weak var mainAnimation: LottieAnimationView!
     @IBOutlet private weak var drugAnimation: LottieAnimationView!
     @IBOutlet private weak var brandTextField: UITextField!
     @IBOutlet private weak var dosageTextfield: UITextField!
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet private weak var counterLabel: UILabel!
     @IBOutlet private weak var segmentRoute: UISegmentedControl!
     @IBOutlet weak var buttonsStackView: UIStackView! // outlet for the stack view
@@ -32,7 +33,6 @@ class AddDrugViewController: UIViewController {
     private var dosageText: String?
     private var timeText: String?
     private var pillsOrSpoonText: String?
-    
     private var timer: Timer?
 
     var selectedDate: Date?
@@ -104,67 +104,54 @@ class AddDrugViewController: UIViewController {
     }
     
     
-    @IBAction func buttonTapped(_ sender: UIButton) {
+    @IBAction func chooseDateTime(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        
-        if sender.tag == 1 { // Date button
-            myDatePicker.datePickerMode = .date
-            alert.title = "Choisir la date"
-            myDatePicker.locale = Locale(identifier: "fr_FR")
-            
-            alert.view.addSubview(myDatePicker)
-            myDatePicker.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                myDatePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
-                myDatePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-            ])
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                let formatter = DateFormatter()
-                formatter.dateStyle = .medium
-                formatter.dateFormat = "d MMM yyyy"
-                formatter.locale = Locale(identifier: "fr_FR")
-                let selectedDate = self.myDatePicker.date
-                self.dateLabel.text = formatter.string(from: selectedDate)
-                self.selectedDate = selectedDate
+           
+           let formatter = DateFormatter()
+           formatter.locale = Locale(identifier: "fr_FR")
 
-                self.scheduleNotification(date: selectedDate, message: "Vous avez des médicaments à prendre")
-            }))
-        } else if sender.tag == 2 { // Time button
-            timePicker.datePickerMode = .time
-              alert.title = "Choisissez l'heure"
-              
-              // Paramétrer le datePicker avec une heure avancée de 10 minutes
-              let calendar = Calendar.current
-              let currentDate = Date()
-              let advancedDate = calendar.date(byAdding: .minute, value: 5, to: currentDate)
-              if let advancedDate = advancedDate {
-                  timePicker.date = advancedDate
-              }
-            
-            timePicker.minuteInterval = 5
+           if sender.tag == 1 { // Date button
+               myDatePicker.datePickerMode = .date
+               alert.title = "Choisir la date"
+               formatter.dateStyle = .medium
+               myDatePicker.locale = Locale(identifier: "fr_FR")
 
-              
-              let formatter = DateFormatter()
-              formatter.dateFormat = "HH:mm"
-              formatter.locale = Locale(identifier: "fr_FR")
-              
-              alert.view.addSubview(timePicker)
-              timePicker.translatesAutoresizingMaskIntoConstraints = false
-              NSLayoutConstraint.activate([
-                  timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40),
-                  timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-              ])
-              
-              alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                  let selectedTime = self.timePicker.date
-                  let selectedTimeFormatted = formatter.string(from: selectedTime)
-                  
-                  self.timeLabel.text = selectedTimeFormatted
-                  self.scheduleNotification(date: selectedTime, message: "Vous avez des médicaments à prendre")
-              }))
-        }
-        present(alert, animated: true)
+               alert.view.addSubview(myDatePicker)
+               myDatePicker.translatesAutoresizingMaskIntoConstraints = false
+               NSLayoutConstraint.activate([
+                   myDatePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                   myDatePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40)
+               ])
+           } else if sender.tag == 2 { // Time button
+               timePicker.datePickerMode = .time
+               alert.title = "Choisissez l'heure"
+               timePicker.minuteInterval = 5
+               
+               alert.view.addSubview(timePicker)
+               timePicker.translatesAutoresizingMaskIntoConstraints = false
+               NSLayoutConstraint.activate([
+                   timePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                   timePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 40)
+               ])
+               
+               formatter.dateFormat = "HH:mm"
+           }
+           
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+               if sender.tag == 1 {
+                   let selectedDate = self.myDatePicker.date
+                   self.dateLabel.text = formatter.string(from: selectedDate)
+                   self.scheduleNotification(date: selectedDate, message: "Vous avez des médicaments à prendre")
+               } else if sender.tag == 2 {
+                   let selectedTime = self.timePicker.date
+                   let selectedTimeFormatted = formatter.string(from: selectedTime)
+                   
+                   self.timeLabel.text = selectedTimeFormatted
+                   self.scheduleNotification(date: selectedTime, message: "Vous avez des médicaments à prendre")
+               }
+           }))
+           
+           present(alert, animated: true)
     }
     
     
@@ -183,7 +170,6 @@ class AddDrugViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
     
     private func showMessage(_ message: String) {
         // Affichez le message d'erreur à l'utilisateur, par exemple :
@@ -307,64 +293,6 @@ class AddDrugViewController: UIViewController {
     private func stopTimer() {
         timer?.invalidate()
         timer = nil
-    }
-    
-    private func displayDateTime() {
-        let calendar = Calendar.current
-        var currentDate = Date()
-        
-        // Récupérer les composants de l'heure actuelle
-        let currentHour = calendar.component(.hour, from: currentDate)
-        let currentMinute = calendar.component(.minute, from: currentDate)
-        
-        // Arrondir les minutes vers le haut à l'intervalle de 5 minutes suivant
-        let roundedMinutes = Int(ceil(Double(currentMinute) / 5.0) * 5.0)
-        currentDate = calendar.date(bySettingHour: currentHour, minute: roundedMinutes, second: 0, of: currentDate) ?? currentDate
-        
-        // Formatter pour l'affichage de la date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.locale = Locale(identifier: "fr_FR")
-        
-        // Formatter pour l'affichage de l'heure
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm"
-        
-        let dateString = dateFormatter.string(from: currentDate)
-        let timeString = timeFormatter.string(from: currentDate)
-        
-        dateLabel.text = dateString
-        timeLabel.text = timeString
-    }
-    
-    func scheduleNotification(date: Date, message: String) {
-        let content = UNMutableNotificationContent()
-        content.title = "Medipills"
-        content.body = message
-        content.sound = .default
-        
-        let calendar = Calendar.current
-        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-        let timeComponents = calendar.dateComponents([.hour, .minute], from: date)
-        
-        var combinedComponents = DateComponents()
-        combinedComponents.year = dateComponents.year
-        combinedComponents.month = dateComponents.month
-        combinedComponents.day = dateComponents.day
-        combinedComponents.hour = timeComponents.hour
-        combinedComponents.minute = timeComponents.minute
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: combinedComponents, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "notificationIdentifier", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { (error) in
-            if let error = error {
-                print("Error scheduling notification: \(error)")
-            } else {
-                print("Notification scheduled successfully.")
-            }
-        }
     }
 }
 

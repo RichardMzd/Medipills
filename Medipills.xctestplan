@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "4F329D99-4402-4C65-8C3D-B03B7055837B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Medipills.xcodeproj",
+      "identifier" : "53B394AA296F398100EA5A32",
+      "name" : "Medipills"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Medipills.xcodeproj",
+        "identifier" : "53B2FF2A2A3A306800179D39",
+        "name" : "MedipillsTests"
+      }
+    }
+  ],
+  "version" : 1
+}

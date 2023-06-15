@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+final class CoreDataManager {
     
     private let coreDataStack: CoreDataStack
     private let managedObjectContext: NSManagedObjectContext

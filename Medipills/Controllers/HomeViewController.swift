@@ -11,37 +11,32 @@ import Lottie
 
 class HomeViewController: UIViewController {
     
+    //  MARK: - Outlets
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var drugTableView: UITableView!
     @IBOutlet private weak var labeltext: UILabel!
-    @IBOutlet private weak var lottieAnimation: LottieAnimationView!
+    @IBOutlet weak var lottieAnimation: LottieAnimationView!
+    
+    //  MARK: - Propreties
     
     let numberOfDates = 30 // Nombre total de dates à afficher
-    var selectedCellIndex: Int?
-    var drugsInfoArray: [LocalDrug]?
-    var filteredDrugsArray: [LocalDrug]?
     
+    var selectedDate: Date?
+    var selectedCellIndex: Int?
     var brandText: String?
     var dosageText: String?
     var dateText: String?
     var counterText: String?
-    var selectedDate: Date?
+    var drugsInfoArray: [LocalDrug]?
+    var filteredDrugsArray: [LocalDrug]?
     
     var coreDataManager: CoreDataManager?
     
+    //  MARK: - Lifecycle
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setAnimation()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        drugTableView.delegate = self
-        drugTableView.dataSource = self
-        setupCell()
-        // Définir la direction de défilement horizontal
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.scrollDirection = .horizontal
-        }
-        
+        setupUI()
         setupCoreData()
         selectTodayCell()
     }
@@ -50,6 +45,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         setAnimation()
         drugsInfoArray = coreDataManager?.fetchDrugsFromDatabase()
+        updateSelectedDate()
         updateDrugTableView()
     }
     
@@ -59,63 +55,73 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func setupCell() {
+    //  MARK: - Methods
+    
+    private func setupUI() {
+        setAnimation()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        drugTableView.delegate = self
+        drugTableView.dataSource = self
+        setupCell()
+        
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+        }
+    }
+    
+    private func setupCell() {
         let nibName = UINib(nibName: "DrugsTableViewCell", bundle: nil)
         drugTableView.register(nibName, forCellReuseIdentifier: "drugCell")
     }
     
-    //  select date cell of CollectionView
-    func selectCell(at index: Int) {
-        selectedCellIndex = index
-        collectionView.reloadData()
-    }
-    
-    func tableViewIsEmpty(drugArray: [LocalDrug]) {
-        if drugArray.isEmpty {
-            lottieAnimation.isHidden = false
-            labeltext.isHidden = false // Afficher le label lorsque la tableView est vide
-            drugTableView.isHidden = true // Cacher la tableView lorsque vide
-        } else {
-            labeltext.isHidden = true // Cacher le label lorsque la tableView contient des éléments
-            lottieAnimation.isHidden = true
-            drugTableView.isHidden = false // Afficher la tableView lorsque non vide
-        }
-    }
-    
-    func checkTableViewEmptyState() {
-        if filteredDrugsArray?.isEmpty ?? true {
-            labeltext.isHidden = false // Afficher le label lorsque la tableView est vide
-            lottieAnimation.isHidden = false
-            drugTableView.isHidden = true // Cacher la tableView lorsque vide
-        } else {
-            labeltext.isHidden = true // Cacher le label lorsque la tableView contient des éléments
-            lottieAnimation.isHidden = true 
-            drugTableView.isHidden = false // Afficher la tableView lorsque non vide
-        }
-    }
-    
-    func updateDrugTableView() {
+    // Update drug table view with selected date
+    private func updateDrugTableView() {
         guard let selectedDate = selectedDate else {
             filteredDrugsArray = drugsInfoArray ?? []
             drugTableView.reloadData()
             return
         }
         
-        let filteredDrugs = drugsInfoArray?.filter { drug in
-            return Calendar.current.isDate(drug.date, inSameDayAs: selectedDate)
-        }
+        filteredDrugsArray = drugsInfoArray?.filter { Calendar.current.isDate($0.date, inSameDayAs: selectedDate) }
+            .sorted { $0.time < $1.time }
         
-        let sortedDrugs = filteredDrugs?.sorted { (drug1, drug2) -> Bool in
-            return drug1.time.compare(drug2.time, options: .numeric) == .orderedAscending
-        }
-        
-        filteredDrugsArray = sortedDrugs ?? []
         drugTableView.reloadData()
-        tableViewIsEmpty(drugArray: sortedDrugs ?? [])
+        tableViewIsEmpty(drugArray: filteredDrugsArray ?? [])
         checkTableViewEmptyState()
     }
-
-    func calculateSelectedCellIndex(for date: Date) -> Int? {
+    
+    // Select today's cell in the collection view when launching the app
+    private func selectTodayCell() {
+        if let todayIndex = calculateSelectedCellIndex(for: Date()) {
+            let indexPath = IndexPath(item: todayIndex, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            selectCell(at: todayIndex)
+            collectionView.reloadData()
+        }
+    }
+    
+//  Method to display
+    private func updateSelectedDate() {
+        guard let selectedCellIndex = selectedCellIndex else {
+            selectedDate = Date() // Utilise la date actuelle si aucun index de cellule n'est sélectionné
+            return
+        }
+        
+        if let today = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date()) {
+            selectedDate = Calendar.current.date(byAdding: .day, value: selectedCellIndex, to: today)
+        }
+    }
+    
+    // Perform actions after deleting a drug
+    private func didDeleteDrug() {
+        cancelNotifications() // Cancel scheduled notifications
+        drugsInfoArray = coreDataManager?.fetchDrugsFromDatabase()
+        updateDrugTableView()
+    }
+    
+    // Calculate the index of the selected cell for a given date
+    private func calculateSelectedCellIndex(for date: Date) -> Int? {
         let calendar = Calendar.current
         guard let today = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: Date()) else {
             return nil
@@ -126,45 +132,25 @@ class HomeViewController: UIViewController {
         return days
     }
     
-    func selectTodayCell() {
-        if let todayIndex = calculateSelectedCellIndex(for: Date()) {
-            let indexPath = IndexPath(item: todayIndex, section: 0)
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-            selectCell(at: todayIndex)
-            collectionView.reloadData()
-            //            updateDrugTableView() // Mettre à jour la liste des médicaments en fonction de la date sélectionnée
+    //  Select date cell of CollectionView
+    private func selectCell(at index: Int) {
+        selectedCellIndex = index
+        collectionView.reloadData()
+    }
+    
+    // Check if the table view is empty and update UI
+    private func tableViewIsEmpty(drugArray: [LocalDrug]) {
+            lottieAnimation.isHidden = !drugArray.isEmpty
+            labeltext.isHidden = !drugArray.isEmpty
+            drugTableView.isHidden = drugArray.isEmpty
         }
-    }
     
-    private func setupCoreData() {
-        guard coreDataManager == nil,
-              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        let coreDataStack = appDelegate.coreDataStack
-        coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
-    }
-    
-    
-    
-    private func cancelNotifications() {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        print("Notifications cancelled.")
-    }
-    
-    func didDeleteDrug() {
-        cancelNotifications() // Annuler les notifications programmées
-        drugsInfoArray = coreDataManager?.fetchDrugsFromDatabase()
-        updateDrugTableView()
-    }
-    
-    private func setAnimation() {
-        DispatchQueue.main.asyncAfter(deadline:  .now()) {
-            self.lottieAnimation.animation = LottieAnimation.named("completing-tasks")
-            self.lottieAnimation.contentMode = .scaleAspectFit
-            self.lottieAnimation.loopMode = .loop
-            self.lottieAnimation.play(completion: nil)
+    // Check if the filtered drugs array is empty and update UI
+    private func checkTableViewEmptyState() {
+            labeltext.isHidden = !(filteredDrugsArray?.isEmpty ?? true)
+            lottieAnimation.isHidden = !(filteredDrugsArray?.isEmpty ?? true)
+            drugTableView.isHidden = filteredDrugsArray?.isEmpty ?? true
         }
-    }
     
 }
 
@@ -196,10 +182,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             guard let drugToRemove = filteredDrugsArray?[indexPath.row] else { return }
             
-            // Supprimer le médicament de la base de données
+            // Delete the drug from database
             coreDataManager?.deleteDrugFromDatabase(localDrug: drugToRemove)
             
-            // Mettre à jour les tableaux
+            // Update the arrays
             if let indexInDrugsArray = drugsInfoArray?.firstIndex(of: drugToRemove) {
                 drugsInfoArray?.remove(at: indexInDrugsArray)
             }
@@ -210,7 +196,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             didDeleteDrug()
             
-            // Mettre à jour complètement la table view
+            // Completely update table view
             updateDrugTableView()
             checkTableViewEmptyState()
         }
@@ -241,7 +227,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if let date = calendar.date(byAdding: dateComponents, to: Date()) {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EE\ndd"
-            dateFormatter.locale = Locale(identifier: "fr_FR") // Définir la locale en fr_FR
+            dateFormatter.locale = Locale(identifier: "fr_FR")
             let dateString = dateFormatter.string(from: date)
             cell.dateLabel.text = dateString
         }
@@ -254,7 +240,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.height // Utilisez la hauteur de la collectionView pour définir la largeur de la cellule
@@ -278,7 +263,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 // MARK: - Delegate
 
+// Implement AddDrugDelegate protocol for handling actions from AddDrugViewController
 extension HomeViewController: AddDrugDelegate {
+    
+    // Handle adding a new drug
     func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?, date: Date?) {
         guard let dosageText = dosageText,
               let timeText = timeText,
@@ -294,7 +282,7 @@ extension HomeViewController: AddDrugDelegate {
             coreDataManager?.saveDrugToDatabase(localDrug: newDrug)
         }
         
-        //        permet de postionner la cell sélectionner en fonction d'un nouveau médicament ajouter
+        //  permet de postionner la cell sélectionner en fonction d'un nouveau médicament ajouter
         if selectedDate == nil || !Calendar.current.isDate(date, inSameDayAs: selectedDate!) {
             selectedDate = date
             if let newIndex = calculateSelectedCellIndex(for: date) {
