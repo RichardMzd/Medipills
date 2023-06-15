@@ -10,6 +10,7 @@
 		535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C576D29FBEF21007E8827 /* ErrorAPI.swift */; };
 		537EFDDF2A17C22F004E5152 /* DrugsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */; };
 		537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */; };
+		5392CA532A3B85CC00FEE7CD /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB9832A377A6000C37EDD /* syrup.json */; };
 		539DBB5229FE75160067AB82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 539DBB5129FE75160067AB82 /* Alamofire */; };
 		53A8A20F2A38980D00C29E52 /* MedipillsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A20D2A38980D00C29E52 /* MedipillsModel.xcdatamodeld */; };
 		53A8A2112A389C9000C29E52 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2102A389C9000C29E52 /* CoreDataStack.swift */; };
@@ -31,7 +32,6 @@
 		53B5EBA02A1685E00063E57D /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */; };
 		53BCB97E2A377A2400C37EDD /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB97D2A377A2400C37EDD /* blue_pill.json */; };
 		53BCB9802A377A3F00C37EDD /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB97F2A377A3F00C37EDD /* medicine.json */; };
-		53BCB9842A377A6000C37EDD /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB9832A377A6000C37EDD /* syrup.json */; };
 		53C0841C29FFC81D00121884 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0841B29FFC81D00121884 /* Extensions.swift */; };
 		53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53C0842129FFF0B300121884 /* Comfortaa.ttf */; };
 		53C11E972A3B67360070480A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53C11E962A3B67360070480A /* FirebaseAnalytics */; };
@@ -326,9 +326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5392CA532A3B85CC00FEE7CD /* syrup.json in Resources */,
 				53B2FF252A39E8DD00179D39 /* completing-tasks.json in Resources */,
 				53AFAD5B2A25FDE80021528A /* medic.json in Resources */,
-				53BCB9842A377A6000C37EDD /* syrup.json in Resources */,
 				53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */,
 				53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */,
 				53BCB9802A377A3F00C37EDD /* medicine.json in Resources */,
@@ -345,7 +345,6 @@
 /* Begin PBXShellScriptBuildPhase section */
 		53C11E9C2A3B69C60070480A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -358,6 +357,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"# Ajouter la sortie comme dépendance\n&& echo \"output.txt\"",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
