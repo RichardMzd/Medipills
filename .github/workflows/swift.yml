@@ -24,6 +24,11 @@ jobs:
       env: 
         GOOGLE_SERVICE_INFO: ${{ secrets.GOOGLE_SERVICE_INFO }}
       run: echo "$GOOGLE_SERVICE_INFO" > Medipills/GoogleService-Info.plist
+      
+      - name: Copy JSON files
+        run: |
+          cp ./syrup.json /Users/runner/work/Downloads/syrup.json
+          cp ./medicine.json /Users/runner/work/Downloads/medicine.json
 
     # We build the app, to ensure it's working.
     - name: Build Medipills
