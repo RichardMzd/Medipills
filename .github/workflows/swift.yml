@@ -21,8 +21,8 @@ jobs:
 
       - name: Build Medipills
         run: xcodebuild -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
-        
-        - name: Copy JSON files
+
+      - name: Copy JSON files
         run: |
           cp ./syrup.json /Users/richardarifmazid/Downloads
           cp ./medicine.json /Users/richardarifmazid/Downloads
