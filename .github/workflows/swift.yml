@@ -29,8 +29,7 @@ jobs:
          
       - name: Copy Comfortaa.ttf
         run: |
-         chmod 644 /Users/richardarifmazid/Desktop/Medipills/Medipills/Comfortaa.ttf
-         cp /Users/richardarifmazid/Desktop/Medipills/Medipills/Comfortaa.ttf $GITHUB_WORKSPACE/Comfortaa.ttf
+         cp Medipills/Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa.ttf
 
 
 
