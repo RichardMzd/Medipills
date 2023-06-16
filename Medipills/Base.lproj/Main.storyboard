@@ -146,7 +146,7 @@
                         <outlet property="collectionView" destination="CCV-cg-JLc" id="MwJ-JU-BiS"/>
                         <outlet property="drugTableView" destination="1Oh-sO-ekv" id="U3P-Zy-26m"/>
                         <outlet property="labeltext" destination="tYf-23-IrK" id="1uo-me-jiX"/>
-                        <outlet property="lottieAnimation" destination="YEt-qZ-UfC" id="EYc-CO-8uv"/>
+                        <outlet property="lottieAnimation" destination="YEt-qZ-UfC" id="4Wl-Lx-ch4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
