@@ -16,10 +16,17 @@ jobs:
 
       - name: Set up GoogleService-Info.plist
         run: echo "$GOOGLE_SERVICE_INFO" > Medipills/GoogleService-Info.plist
+        
+      - name: Create Downloads directory
+        run: mkdir -p $HOME/work/Downloads
+
+      - name: Copy JSON files
+        run: |
+         cp Medipills/Animations/syrup.json $HOME/work/Downloads/syrup.json
+         cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
 
       - name: Build Medipills
         run: xcodebuild -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
-
 
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
