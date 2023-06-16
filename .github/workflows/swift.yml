@@ -24,8 +24,6 @@ jobs:
 
       - name: Copy JSON files
         run: |
-          cp ./syrup.json $HOME/work/Downloads/syrup.json
-          cp ./medicine.json $HOME/work/Downloads/medicine.json
           cp ./medic.json $HOME/work/Downloads/medic.json
           cp ./completing-tasks.json $HOME/work/Downloads/completing-tasks.json
 
