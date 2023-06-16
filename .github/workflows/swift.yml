@@ -25,6 +25,10 @@ jobs:
           mkdir -p $GITHUB_WORKSPACE/Downloads/
           cp ./medic.json $GITHUB_WORKSPACE/medic.json
           cp ./completing-tasks.json $GITHUB_WORKSPACE/completing-tasks.json
+          cp ./syrup.json $GITHUB_WORKSPACE/syrup.json
+          cp ./medicine.json $GITHUB_WORKSPACE/medicine.json
+
+
 
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
