@@ -23,10 +23,10 @@ jobs:
       - name: Copy JSON files
         run: |
           mkdir -p $GITHUB_WORKSPACE/Downloads/
-          cp ./medic.json $GITHUB_WORKSPACE/medic.json
-          cp ./completing-tasks.json $GITHUB_WORKSPACE/completing-tasks.json
-          cp ./syrup.json $GITHUB_WORKSPACE/syrup.json
-          cp ./medicine.json $GITHUB_WORKSPACE/medicine.json
+          cp ./medic.json $GITHUB_WORKSPACE/Downloads/medic.json
+          cp ./completing-tasks.json $GITHUB_WORKSPACE/Downloads/completing-tasks.json
+          cp ./syrup.json $GITHUB_WORKSPACE/Downlads/syrup.json
+          cp ./medicine.json $GITHUB_WORKSPACE/Downloads/medicine.json
 
 
 
