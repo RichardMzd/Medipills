@@ -34,7 +34,7 @@ jobs:
       - name: Copy GoogleService-Info.plist
         run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
 
-      - name: Run Unit Tests
+      - name: Run MedipillsTests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
         
       - name: Build Medipills
