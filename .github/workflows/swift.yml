@@ -27,12 +27,9 @@ jobs:
          cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
          cp Medipills/Animations/blue_pill.json $HOME/work/Downloads/blue_pill.json
 
-      - name: Find Comfortaa.ttf
-        run: find . -name Comfortaa.ttf
-
       - name: Copy Comfortaa.ttf
         run: |
-         cp ./Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa.ttf
+         cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa.ttf
 
       - name: Copy GoogleService-Info.plist
         run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
