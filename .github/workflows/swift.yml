@@ -21,12 +21,11 @@ jobs:
         run: xcodebuild -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
 
       - name: Copy JSON files
-        run: |
-          mkdir -p $GITHUB_WORKSPACE/Downloads/
-          cp ./medic.json $GITHUB_WORKSPACE/Downloads/medic.json
-          cp ./completing-tasks.json $GITHUB_WORKSPACE/Downloads/completing-tasks.json
-          cp ./syrup.json $GITHUB_WORKSPACE/Downlads/syrup.json
-          cp ./medicine.json $GITHUB_WORKSPACE/Downloads/medicine.json
+        run:
+          cp ./medic.json Medipills/medic.json
+          cp ./completing-tasks.json Medipills/completing-tasks.json
+          cp ./syrup.json Medipills/syrup.json
+          cp ./medicine.json Medipills/medicine.json
 
 
 
