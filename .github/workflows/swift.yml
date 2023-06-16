@@ -18,13 +18,8 @@ jobs:
         run: echo "$GOOGLE_SERVICE_INFO" > Medipills/GoogleService-Info.plist
 
       - name: Build Medipills
-        run: xcodebuild -scheme Medipills -project Medipills/Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
-
-      - name: Copy JSON files
-        run: |
-          cp Medipills/Animations/syrup.json $HOME/Downloads/syrup.json
-          cp Medipills/Animations/medicine.json $HOME/Downloads/medicine.json
+        run: xcodebuild -scheme Medipills -project Medipills -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
 
 
       - name: Run Unit Tests
-        run: xcodebuild test -scheme Medipills -project Medipills/Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
+        run: xcodebuild test -scheme Medipills -project Medipills -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
