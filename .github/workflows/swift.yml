@@ -29,8 +29,9 @@ jobs:
          
       - name: Copy Comfortaa.ttf
         run: |
-          chmod 644 Medipills/Comfortaa.ttf
-          cp Medipills/Comfortaa.ttf $GITHUB_WORKSPACE/Comfortaa.ttf
+         chmod 644 /Users/richardarifmazid/Desktop/Medipills/Medipills/Comfortaa.ttf
+         cp /Users/richardarifmazid/Desktop/Medipills/Medipills/Comfortaa.ttf $GITHUB_WORKSPACE/Comfortaa.ttf
+
 
 
       - name: Copy GoogleService-Info.plist
