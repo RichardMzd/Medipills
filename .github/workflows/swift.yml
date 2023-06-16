@@ -22,10 +22,9 @@ jobs:
 
       - name: Copy JSON files
         run: |
-          cp /Users/runner/work/Downloads/syrup.json
-          cp /Users/runner/work/Downloads/medicine.json
-          cp /Users/runner/work/Downloads/completing-tasks.json
-          cp /Users/runner/work/Downloads/medic.json
+          cp Medipills/Animations/syrup.json $HOME/Downloads/syrup.json
+          cp Medipills/Animations/medicine.json $HOME/Downloads/medicine.json
+
 
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
