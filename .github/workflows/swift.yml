@@ -15,8 +15,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up GoogleService-Info.plist
-        env: 
-          GOOGLE_SERVICE_INFO: ${{ secrets.GOOGLE_SERVICE_INFO }}
         run: echo "$GOOGLE_SERVICE_INFO" > Medipills/GoogleService-Info.plist
 
       - name: Build Medipills
@@ -24,8 +22,8 @@ jobs:
 
       - name: Copy JSON files
         run: |
-          cp ./medic.json Medipills/medic.json
-          cp ./completing-tasks.json Medipills/completing-tasks.json
+          cp ./medic.json $GITHUB_WORKSPACE/medic.json
+          cp ./completing-tasks.json $GITHUB_WORKSPACE/completing-tasks.json
 
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
