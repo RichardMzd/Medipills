@@ -22,10 +22,10 @@ jobs:
 
       - name: Copy JSON files
         run:
-          cp ./medic.json Medipills/medic.json
-          cp ./completing-tasks.json Medipills/completing-tasks.json
-          cp ./syrup.json Medipills/syrup.json
-          cp ./medicine.json Medipills/medicine.json
+          cp Medipills/Animations/syrup.json $GITHUB_WORKSPACE/Downloads/syrup.json
+          cp Medipills/Model/medic.json $GITHUB_WORKSPACE/Downloads/medic.json
+          cp Medipills/Animations/medicine.json $GITHUB_WORKSPACE/Downloads/medicine.json
+          cp Medipills/Animations/completing-tasks.json $GITHUB_WORKSPACE/Downloads/completing-tasks.json
 
 
 
