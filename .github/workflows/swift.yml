@@ -20,11 +20,15 @@ jobs:
       - name: Build Medipills
         run: xcodebuild -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
 
-      - name: Run Unit Tests
-        run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
-        
+      - name: Create Downloads directory
+        run: mkdir -p $HOME/work/Downloads
+
       - name: Copy JSON files
         run: |
-           cp Medipills/Medipills/Animations/syrup.json $HOME/work/Downloads/syrup.json
-           cp Medipills/Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
+          cp /Users/richardarifmazid/Desktop/Medipills/Medipills/Animations/syrup.json $HOME/work/Downloads/syrup.json
+          cp /Users/richardarifmazid/Desktop/Medipills/Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
+          cp /Users/richardarifmazid/Desktop/Medipills/Medipills/Animations/completing-tasks.json $HOME/work/Downloads/completing-tasks.json
+          cp /Users/richardarifmazid/Desktop/Medipills/Medipills/Model/medic.json $HOME/work/Downloads/medic.json
 
+      - name: Run Unit Tests
+        run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
