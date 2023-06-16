@@ -10,18 +10,20 @@
 		535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C576D29FBEF21007E8827 /* ErrorAPI.swift */; };
 		537EFDDF2A17C22F004E5152 /* DrugsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */; };
 		537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */; };
-		5392CA5D2A3BC61300FEE7CD /* medic.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AFAD5A2A25FDE80021528A /* medic.json */; };
-		5392CA5E2A3BC61900FEE7CD /* completing-tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 53B2FF242A39E8DD00179D39 /* completing-tasks.json */; };
-		5392CA5F2A3BC61F00FEE7CD /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB9832A377A6000C37EDD /* syrup.json */; };
-		5392CA602A3BC62400FEE7CD /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB97F2A377A3F00C37EDD /* medicine.json */; };
-		5392CA612A3BC62A00FEE7CD /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53BCB97D2A377A2400C37EDD /* blue_pill.json */; };
-		539DBB5229FE75160067AB82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 539DBB5129FE75160067AB82 /* Alamofire */; };
 		53A8A20F2A38980D00C29E52 /* MedipillsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A20D2A38980D00C29E52 /* MedipillsModel.xcdatamodeld */; };
 		53A8A2112A389C9000C29E52 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2102A389C9000C29E52 /* CoreDataStack.swift */; };
 		53A8A2132A38ABD400C29E52 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2122A38ABD400C29E52 /* CoreDataManager.swift */; };
 		53A8A2152A38AC3800C29E52 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8A2142A38AC3800C29E52 /* Drug.swift */; };
+		53AC7B592A3C848B00EC86A2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B582A3C848B00EC86A2 /* FirebaseAnalytics */; };
+		53AC7B5B2A3C848B00EC86A2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B5A2A3C848B00EC86A2 /* FirebaseCrashlytics */; };
+		53AC7B5E2A3C849D00EC86A2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B5D2A3C849D00EC86A2 /* Lottie */; };
+		53AC7B612A3C84AD00EC86A2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B602A3C84AD00EC86A2 /* Alamofire */; };
+		53AC7B632A3CA65300EC86A2 /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B622A3CA65300EC86A2 /* medicine.json */; };
+		53AC7B652A3CA67800EC86A2 /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B642A3CA67700EC86A2 /* blue_pill.json */; };
+		53AC7B672A3CA69E00EC86A2 /* completing-tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B662A3CA69D00EC86A2 /* completing-tasks.json */; };
+		53AC7B692A3CA6BA00EC86A2 /* syrup.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B682A3CA6B900EC86A2 /* syrup.json */; };
+		53AC7B6B2A3CA6E300EC86A2 /* medic.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B6A2A3CA6E300EC86A2 /* medic.json */; };
 		53AD1A882A050B2F00CBFD65 /* AddDrugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */; };
-		53AD1A8B2A050DAA00CBFD65 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 53AD1A8A2A050DAA00CBFD65 /* Lottie */; };
 		53B2FF2E2A3A306900179D39 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2FF2D2A3A306900179D39 /* CoreDataTestCase.swift */; };
 		53B2FF362A3A312300179D39 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2FF352A3A312300179D39 /* MockCoreDataStack.swift */; };
 		53B2FF3A2A3A348A00179D39 /* DrugServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2FF392A3A348A00179D39 /* DrugServiceTestCase.swift */; };
@@ -34,8 +36,6 @@
 		53B5EBA02A1685E00063E57D /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */; };
 		53C0841C29FFC81D00121884 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0841B29FFC81D00121884 /* Extensions.swift */; };
 		53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53C0842129FFF0B300121884 /* Comfortaa.ttf */; };
-		53C11E972A3B67360070480A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53C11E962A3B67360070480A /* FirebaseAnalytics */; };
-		53C11E992A3B67360070480A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53C11E982A3B67360070480A /* FirebaseCrashlytics */; };
 		53C11E9B2A3B688F0070480A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53C11E9A2A3B688F0070480A /* GoogleService-Info.plist */; };
 		53D8935229E478B300ADAC1E /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935129E478B300ADAC1E /* Drugs.swift */; };
 		53D8935429E478F000ADAC1E /* DrugService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935329E478F000ADAC1E /* DrugService.swift */; };
@@ -59,9 +59,12 @@
 		53A8A2102A389C9000C29E52 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		53A8A2122A38ABD400C29E52 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		53A8A2142A38AC3800C29E52 /* Drug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
+		53AC7B622A3CA65300EC86A2 /* medicine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medicine.json; path = ../../../../Downloads/medicine.json; sourceTree = "<group>"; };
+		53AC7B642A3CA67700EC86A2 /* blue_pill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = blue_pill.json; path = ../../../../Downloads/blue_pill.json; sourceTree = "<group>"; };
+		53AC7B662A3CA69D00EC86A2 /* completing-tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "completing-tasks.json"; sourceTree = "<group>"; };
+		53AC7B682A3CA6B900EC86A2 /* syrup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = syrup.json; path = ../../../../Downloads/syrup.json; sourceTree = "<group>"; };
+		53AC7B6A2A3CA6E300EC86A2 /* medic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medic.json; sourceTree = "<group>"; };
 		53AD1A872A050B2F00CBFD65 /* AddDrugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrugViewController.swift; sourceTree = "<group>"; };
-		53AFAD5A2A25FDE80021528A /* medic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medic.json; path = ../../../../Downloads/medic.json; sourceTree = "<group>"; };
-		53B2FF242A39E8DD00179D39 /* completing-tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "completing-tasks.json"; path = "../../../../Downloads/completing-tasks.json"; sourceTree = "<group>"; };
 		53B2FF2B2A3A306900179D39 /* MedipillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedipillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B2FF2D2A3A306900179D39 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 		53B2FF352A3A312300179D39 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
@@ -76,9 +79,6 @@
 		53B394BA296F398300EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53B394BC296F398300EA5A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
-		53BCB97D2A377A2400C37EDD /* blue_pill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = blue_pill.json; path = ../../../../Downloads/blue_pill.json; sourceTree = "<group>"; };
-		53BCB97F2A377A3F00C37EDD /* medicine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medicine.json; path = ../../../../Downloads/medicine.json; sourceTree = "<group>"; };
-		53BCB9832A377A6000C37EDD /* syrup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = syrup.json; path = ../../../../Downloads/syrup.json; sourceTree = "<group>"; };
 		53C0841B29FFC81D00121884 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		53C0842129FFF0B300121884 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Comfortaa.ttf; path = ../../../Downloads/Comfortaa/Comfortaa.ttf; sourceTree = "<group>"; };
 		53C11E9A2A3B688F0070480A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -98,10 +98,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				539DBB5229FE75160067AB82 /* Alamofire in Frameworks */,
-				53C11E992A3B67360070480A /* FirebaseCrashlytics in Frameworks */,
-				53AD1A8B2A050DAA00CBFD65 /* Lottie in Frameworks */,
-				53C11E972A3B67360070480A /* FirebaseAnalytics in Frameworks */,
+				53AC7B592A3C848B00EC86A2 /* FirebaseAnalytics in Frameworks */,
+				53AC7B612A3C84AD00EC86A2 /* Alamofire in Frameworks */,
+				53AC7B5B2A3C848B00EC86A2 /* FirebaseCrashlytics in Frameworks */,
+				53AC7B5E2A3C849D00EC86A2 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +111,8 @@
 		539DBB5329FE75250067AB82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				53AC7B6A2A3CA6E300EC86A2 /* medic.json */,
 				53BCB9862A3783D500C37EDD /* CoreData */,
-				53AFAD5A2A25FDE80021528A /* medic.json */,
 				53D8935329E478F000ADAC1E /* DrugService.swift */,
 				53D8935129E478B300ADAC1E /* Drugs.swift */,
 			);
@@ -198,10 +198,10 @@
 		53BCB9782A37781D00C37EDD /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				53B2FF242A39E8DD00179D39 /* completing-tasks.json */,
-				53BCB9832A377A6000C37EDD /* syrup.json */,
-				53BCB97F2A377A3F00C37EDD /* medicine.json */,
-				53BCB97D2A377A2400C37EDD /* blue_pill.json */,
+				53AC7B682A3CA6B900EC86A2 /* syrup.json */,
+				53AC7B662A3CA69D00EC86A2 /* completing-tasks.json */,
+				53AC7B642A3CA67700EC86A2 /* blue_pill.json */,
+				53AC7B622A3CA65300EC86A2 /* medicine.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -262,10 +262,10 @@
 			);
 			name = Medipills;
 			packageProductDependencies = (
-				539DBB5129FE75160067AB82 /* Alamofire */,
-				53AD1A8A2A050DAA00CBFD65 /* Lottie */,
-				53C11E962A3B67360070480A /* FirebaseAnalytics */,
-				53C11E982A3B67360070480A /* FirebaseCrashlytics */,
+				53AC7B582A3C848B00EC86A2 /* FirebaseAnalytics */,
+				53AC7B5A2A3C848B00EC86A2 /* FirebaseCrashlytics */,
+				53AC7B5D2A3C849D00EC86A2 /* Lottie */,
+				53AC7B602A3C84AD00EC86A2 /* Alamofire */,
 			);
 			productName = Medipills;
 			productReference = 53B394AB296F398100EA5A32 /* Medipills.app */;
@@ -300,9 +300,9 @@
 			);
 			mainGroup = 53B394A2296F398100EA5A32;
 			packageReferences = (
-				539DBB5029FE75160067AB82 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				53AD1A892A050DAA00CBFD65 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				53C11E952A3B67350070480A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				53AC7B572A3C848B00EC86A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				53AC7B5C2A3C849D00EC86A2 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				53AC7B5F2A3C84AD00EC86A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 53B394AC296F398100EA5A32 /* Products */;
 			projectDirPath = "";
@@ -326,17 +326,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5392CA612A3BC62A00FEE7CD /* blue_pill.json in Resources */,
-				5392CA602A3BC62400FEE7CD /* medicine.json in Resources */,
-				5392CA5F2A3BC61F00FEE7CD /* syrup.json in Resources */,
-				5392CA5E2A3BC61900FEE7CD /* completing-tasks.json in Resources */,
-				5392CA5D2A3BC61300FEE7CD /* medic.json in Resources */,
+				53AC7B672A3CA69E00EC86A2 /* completing-tasks.json in Resources */,
+				53AC7B652A3CA67800EC86A2 /* blue_pill.json in Resources */,
+				53AC7B692A3CA6BA00EC86A2 /* syrup.json in Resources */,
 				53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */,
 				53C0842229FFF0B300121884 /* Comfortaa.ttf in Resources */,
+				53AC7B632A3CA65300EC86A2 /* medicine.json in Resources */,
 				53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */,
 				53C11E9B2A3B688F0070480A /* GoogleService-Info.plist in Resources */,
 				53B394B6296F398100EA5A32 /* Main.storyboard in Resources */,
 				537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */,
+				53AC7B6B2A3CA6E300EC86A2 /* medic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,23 +672,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		539DBB5029FE75160067AB82 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		53AD1A892A050DAA00CBFD65 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.0;
-			};
-		};
-		53C11E952A3B67350070480A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		53AC7B572A3C848B00EC86A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -696,28 +680,44 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		53AC7B5C2A3C849D00EC86A2 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		53AC7B5F2A3C84AD00EC86A2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		539DBB5129FE75160067AB82 /* Alamofire */ = {
+		53AC7B582A3C848B00EC86A2 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 539DBB5029FE75160067AB82 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		53AD1A8A2A050DAA00CBFD65 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 53AD1A892A050DAA00CBFD65 /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
-		53C11E962A3B67360070480A /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 53C11E952A3B67350070480A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 53AC7B572A3C848B00EC86A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		53C11E982A3B67360070480A /* FirebaseCrashlytics */ = {
+		53AC7B5A2A3C848B00EC86A2 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 53C11E952A3B67350070480A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 53AC7B572A3C848B00EC86A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		53AC7B5D2A3C849D00EC86A2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AC7B5C2A3C849D00EC86A2 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		53AC7B602A3C84AD00EC86A2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AC7B5F2A3C84AD00EC86A2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 
