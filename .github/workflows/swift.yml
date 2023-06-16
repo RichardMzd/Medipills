@@ -24,8 +24,8 @@ jobs:
 
       - name: Copy JSON files
         run: |
-          cp ./medic.json $HOME/work/Downloads/medic.json
-          cp ./completing-tasks.json $HOME/work/Downloads/completing-tasks.json
+          cp ./medic.json Medipills/medic.json
+          cp ./completing-tasks.json Medipills/completing-tasks.json
 
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
