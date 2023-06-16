@@ -25,7 +25,6 @@ jobs:
         
       - name: Copy JSON files
         run: |
-          cp Medipills/Animations/syrup.json $GITHUB_WORKSPACE/Downloads/syrup.json
-          cp Medipills/Animations/medicine.json $GITHUB_WORKSPACE/Downloads/medicine.json
-          cp Medipills/Animations/completing-tasks.json $GITHUB_WORKSPACE/Downloads/completing-tasks.json
-          cp Medipills/Model/medic.json $GITHUB_WORKSPACE/Downloads/medic.json
+          cp ./medic.json $GITHUB_WORKSPACE/Downloads/medic.json
+          cp ./completing-tasks.json $GITHUB_WORKSPACE/Downloads/completing-tasks.json
+
