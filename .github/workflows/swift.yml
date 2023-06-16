@@ -22,6 +22,7 @@ jobs:
 
       - name: Copy JSON files
         run: |
+          mkdir -p $GITHUB_WORKSPACE/Downloads/
           cp ./medic.json $GITHUB_WORKSPACE/medic.json
           cp ./completing-tasks.json $GITHUB_WORKSPACE/completing-tasks.json
 
