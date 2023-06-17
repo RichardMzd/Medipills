@@ -44,3 +44,5 @@ jobs:
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
 
+      - name: Debug
+        run: ls $HOME/work/Downloads
