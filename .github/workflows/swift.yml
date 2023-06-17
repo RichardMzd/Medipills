@@ -30,7 +30,7 @@ jobs:
       - name: Copy Comfortaa.ttf
         run: |
             chmod 644 Medipills/Comfortaa.ttf
-            cp Medipills/Comfortaa.ttf $HOME/work/Downloads/
+            cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa
 
       - name: Copy GoogleService-Info.plist
         run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
