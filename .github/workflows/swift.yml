@@ -27,10 +27,9 @@ jobs:
          cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
          cp Medipills/Animations/blue_pill.json $HOME/work/Downloads/blue_pill.json
 
-      - name: Copy Comfortaa.ttf
+      - name: Copy Comfortaa
         run: |
-            chmod 644 Medipills/Comfortaa.ttf
-            cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa
+            cp Medipills/Comfortaa $HOME/work/Downloads/Comfortaa
 
       - name: Copy GoogleService-Info.plist
         run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
