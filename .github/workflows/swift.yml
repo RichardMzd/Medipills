@@ -29,6 +29,7 @@ jobs:
 
       - name: Copy Comfortaa
         run: |
+            chmod 644 Medipills/Comfortaa
             cp Medipills/Comfortaa $HOME/work/Downloads/Comfortaa
 
       - name: Copy GoogleService-Info.plist
