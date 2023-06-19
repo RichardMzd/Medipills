@@ -12,18 +12,30 @@ jobs:
     runs-on: macos-latest
 
     steps:
+    
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+         xcode-version: '14.3'
+        
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up GoogleService-Info.plist
         run: echo "$GOOGLE_SERVICE_INFO" > Medipills/GoogleService-Info.plist
         
-      - name: Create Downloads directory
-        run: mkdir -p $HOME/work/Downloads
+      - name: Check Comfortaa.ttf permissions
+        run: ls -l Medipills/Comfortaa.ttf
         
+      - name: Create Comfortaa directory
+        run: mkdir -p $HOME/work/Downloads/Comfortaa
+
       - name: Copy Comfortaa.ttf
         run: |
          cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa.ttf
+         
+      - name: Create Downloads directory
+        run: mkdir -p $HOME/work/Downloads
 
       - name: Copy JSON files
         run: |
