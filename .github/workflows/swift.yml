@@ -12,11 +12,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    
-      - name: Set up Xcode
-        uses: actions/setup-xcode@v2
-        with:
-         xcode-version: '14.3'
         
       - name: Checkout repository
         uses: actions/checkout@v3
