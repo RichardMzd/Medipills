@@ -12,7 +12,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-        
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -44,7 +43,7 @@ jobs:
         run: xcodebuild clean -scheme Medipills -project Medipills.xcodeproj
 
       - name: Build Medipills
-        run: xcodebuild -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" build
+        run: xcodebuild build -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max"
 
       - name: Run Unit Tests
-        run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" clean build
+        run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max"
