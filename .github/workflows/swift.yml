@@ -27,11 +27,11 @@ jobs:
          cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
          cp Medipills/Animations/blue_pill.json $HOME/work/Downloads/blue_pill.json
 
-      - name: Create Comfortaa directory
-        run: mkdir -p $HOME/work/Comfortaa
-
       - name: Copy Comfortaa.ttf
-        run: cp Medipills/Comfortaa.ttf $HOME/work/Comfortaa/Comfortaa.ttf
+        run: |
+         mkdir -p $HOME/work/Downloads/Comfortaa
+         cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa/Comfortaa.ttf
+
 
       - name: Copy GoogleService-Info.plist
         run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
