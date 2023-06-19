@@ -29,7 +29,7 @@ jobs:
 
       - name: Copy Comfortaa.ttf
         run: |
-          cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa.ttf
+          cp Comfortaa.ttf $HOME/work/Downloads/Comfortaa.ttf
 
 
       - name: Copy GoogleService-Info.plist
