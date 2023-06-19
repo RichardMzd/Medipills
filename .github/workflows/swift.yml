@@ -35,9 +35,21 @@ jobs:
          cp Medipills/Animations/syrup.json $HOME/work/Downloads/syrup.json
          cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
          cp Medipills/Animations/blue_pill.json $HOME/work/Downloads/blue_pill.json
-        
+
+      - name: Copy GoogleService-Info.plist
+        run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
+
+      - name: Clean project
+        run: xcodebuild clean -scheme Medipills -project Medipills.xcodeproj
+
       - name: Build Medipills
         run: xcodebuild build -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max"
 
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max"
+
+      - name: Fix Script Permissions
+        run: chmod +x /Users/runner/Library/Developer/Xcode/DerivedData/Medipills-fcfyzvumkxvttzcpwnfwxeldqivu/Build/Intermediates.noindex/Medipills.build/Debug-iphonesimulator/Medipills.build/Script-53C11E9C2A3B69C60070480A.sh
+
+      - name: Run Script
+        run: sh /Users/runner/Library/Developer/Xcode/DerivedData/Medipills-fcfyzvumkxvttzcpwnfwxeldqivu/Build/Intermediates.noindex/Medipills.build/Debug-iphonesimulator/Medipills.build/Script-53C11E9C2A3B69C60070480A.sh
