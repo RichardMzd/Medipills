@@ -29,7 +29,6 @@ jobs:
 
       - name: Copy Comfortaa.ttf
         run: |
-         mkdir -p $HOME/work/Downloads/Comfortaa
          cp Medipills/Comfortaa.ttf $HOME/work/Downloads/Comfortaa/Comfortaa.ttf
 
 
