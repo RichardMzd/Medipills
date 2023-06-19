@@ -36,7 +36,6 @@
 		53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */; };
 		53B5EBA02A1685E00063E57D /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */; };
 		53C0841C29FFC81D00121884 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0841B29FFC81D00121884 /* Extensions.swift */; };
-		53C11E9B2A3B688F0070480A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53C11E9A2A3B688F0070480A /* GoogleService-Info.plist */; };
 		53D8935229E478B300ADAC1E /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935129E478B300ADAC1E /* Drugs.swift */; };
 		53D8935429E478F000ADAC1E /* DrugService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8935329E478F000ADAC1E /* DrugService.swift */; };
 /* End PBXBuildFile section */
@@ -80,8 +79,8 @@
 		53B394BA296F398300EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53B394BC296F398300EA5A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		53B604572A40BB4200AC6987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53C0841B29FFC81D00121884 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		53C11E9A2A3B688F0070480A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53D8935129E478B300ADAC1E /* Drugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drugs.swift; sourceTree = "<group>"; };
 		53D8935329E478F000ADAC1E /* DrugService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,7 +189,7 @@
 				53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */,
 				53AC7B6C2A3D1C3100EC86A2 /* Comfortaa.ttf */,
 				53B394BC296F398300EA5A32 /* Info.plist */,
-				53C11E9A2A3B688F0070480A /* GoogleService-Info.plist */,
+				53B604572A40BB4200AC6987 /* GoogleService-Info.plist */,
 			);
 			path = Medipills;
 			sourceTree = "<group>";
@@ -333,7 +332,6 @@
 				53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */,
 				53AC7B632A3CA65300EC86A2 /* medicine.json in Resources */,
 				53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */,
-				53C11E9B2A3B688F0070480A /* GoogleService-Info.plist in Resources */,
 				53B394B6296F398100EA5A32 /* Main.storyboard in Resources */,
 				537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */,
 				53AC7B6B2A3CA6E300EC86A2 /* medic.json in Resources */,
