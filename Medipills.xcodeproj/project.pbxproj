@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533B91632A4217B2000CA9C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53B604572A40BB4200AC6987 /* GoogleService-Info.plist */; };
 		535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C576D29FBEF21007E8827 /* ErrorAPI.swift */; };
 		537EFDDF2A17C22F004E5152 /* DrugsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */; };
 		537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */; };
@@ -325,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533B91632A4217B2000CA9C5 /* GoogleService-Info.plist in Resources */,
 				53AC7B672A3CA69E00EC86A2 /* completing-tasks.json in Resources */,
 				53AC7B652A3CA67800EC86A2 /* blue_pill.json in Resources */,
 				53AC7B6D2A3D1C3100EC86A2 /* Comfortaa.ttf in Resources */,
@@ -582,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -601,6 +604,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RichardMazid.Medipills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -615,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -634,6 +639,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RichardMazid.Medipills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
