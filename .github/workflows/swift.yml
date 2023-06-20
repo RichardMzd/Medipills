@@ -11,7 +11,7 @@ jobs:
   build_test:
     runs-on: macos-latest
     env:
-      xcode_version: 14.3
+      xcode_version: 14.2
 
     steps:
       - name: Checkout repository
