@@ -159,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				53B2FF372A3A331800179D39 /* Medipills.xctestplan */,
+				53B604572A40BB4200AC6987 /* GoogleService-Info.plist */,
 				53B394AD296F398100EA5A32 /* Medipills */,
 				53B2FF2C2A3A306900179D39 /* MedipillsTests */,
 				53B394AC296F398100EA5A32 /* Products */,
@@ -190,7 +191,6 @@
 				53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */,
 				53AC7B6C2A3D1C3100EC86A2 /* Comfortaa.ttf */,
 				53B394BC296F398300EA5A32 /* Info.plist */,
-				53B604572A40BB4200AC6987 /* GoogleService-Info.plist */,
 			);
 			path = Medipills;
 			sourceTree = "<group>";
