@@ -4,8 +4,8 @@ name: App Control
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+      branches:
+        - main
 
 jobs:
   build_test:
@@ -34,9 +34,9 @@ jobs:
 
       - name: Copy JSON files
         run: |
-         cp Medipills/Animations/syrup.json $HOME/work/Downloads/syrup.json
-         cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
-         cp Medipills/Animations/blue_pill.json $HOME/work/Downloads/blue_pill.json
+          cp Medipills/Animations/syrup.json $HOME/work/Downloads/syrup.json
+          cp Medipills/Animations/medicine.json $HOME/work/Downloads/medicine.json
+          cp Medipills/Animations/blue_pill.json $HOME/work/Downloads/blue_pill.json
 
       - name: Copy GoogleService-Info.plist
         run: cp Medipills/GoogleService-Info.plist $HOME/work/Downloads/GoogleService-Info.plist
@@ -50,8 +50,5 @@ jobs:
       - name: Run Unit Tests
         run: xcodebuild test -scheme Medipills -project Medipills.xcodeproj -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14 Pro Max"
 
-      - name: Fix Script Permissions
-        run: chmod +x /Users/runner/Library/Developer/Xcode/DerivedData/Medipills-fcfyzvumkxvttzcpwnfwxeldqivu/Build/Intermediates.noindex/Medipills.build/Debug-iphonesimulator/Medipills.build/Script-53C11E9C2A3B69C60070480A.sh
-
       - name: Run Crashlytics Script
-        run: "${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run" "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}" "$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)"
+        run: "${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run"
