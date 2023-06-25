@@ -25,4 +25,5 @@ struct LocalDrug: Equatable {
     var time: String
     var quantity: String
     var date: Date
+    var isPill: Bool
 }

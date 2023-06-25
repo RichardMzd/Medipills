@@ -3,6 +3,7 @@
     <entity name="Drug" representedClassName=".Drug" syncable="YES" codeGenerationType="category">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dose" optional="YES" attributeType="String"/>
+        <attribute name="isPill" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>

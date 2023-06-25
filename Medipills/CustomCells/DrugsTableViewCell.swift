@@ -13,7 +13,9 @@ class DrugsTableViewCell: UITableViewCell {
     @IBOutlet private weak var dosage: UILabel!
     @IBOutlet private weak var time: UILabel!
     @IBOutlet private weak var pillsOrSpoon: UILabel!
+    @IBOutlet private weak var drugIcon: UIImageView!
     
+    var segmentTitle: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,10 +25,16 @@ class DrugsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(with drugName: String) {
+    func configure(with drugName: String, isPill: Bool) {
         self.drugName.text = drugName
+        
+        if isPill {
+            drugIcon.image = UIImage(named: "medicament")
+        } else {
+            drugIcon.image = UIImage(named: "sirop")
+        }
     }
-    
+
     var dosageText: String? {
         didSet {
             dosage.text = dosageText

@@ -168,7 +168,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let drug = filteredDrugsArray?[indexPath.row]
-        drugCell.configure(with: drug?.name ?? "")
+        drugCell.configure(with: drug?.name ?? "", isPill: drug?.isPill ?? false)
         drugCell.dosageText = drug?.dose
         drugCell.timeText = drug?.time
         drugCell.pillsOrSpoonText = drug?.quantity
@@ -267,13 +267,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension HomeViewController: AddDrugDelegate {
     
     // Handle adding a new drug
-    func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?, date: Date?) {
+    func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?, date: Date?, isPill: Bool?) {
         guard let dosageText = dosageText,
               let timeText = timeText,
               let pillsOrSpoonText = pillsOrSpoonText,
-              let date = date else { return }
+              let date = date,
+              let isPill = isPill else { return }
         
-        let newDrug = LocalDrug(name: drug, dose: dosageText, time: timeText, quantity: pillsOrSpoonText, date: date)
+        let newDrug = LocalDrug(name: drug, dose: dosageText, time: timeText, quantity: pillsOrSpoonText, date: date, isPill: isPill)
         
         if drugsInfoArray == nil {
             drugsInfoArray = [newDrug]

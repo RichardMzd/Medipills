@@ -38,6 +38,7 @@ final class CoreDataManager {
           drug.setValue(localDrug.time, forKey: "time")
           drug.setValue(localDrug.quantity, forKey: "quantity")
           drug.setValue(localDrug.date, forKey: "date")
+          drug.setValue(localDrug.isPill, forKey: "isPill")
           
           do {
               try managedContext.save()
@@ -63,9 +64,10 @@ final class CoreDataManager {
                    let dose = fetchedDrug.value(forKey: "dose") as? String,
                    let time = fetchedDrug.value(forKey: "time") as? String,
                    let quantity = fetchedDrug.value(forKey: "quantity") as? String,
-                   let date = fetchedDrug.value(forKey: "date") as? Date {
+                   let date = fetchedDrug.value(forKey: "date") as? Date,
+                   let isPill = fetchedDrug.value(forKey: "isPill") as? Bool {
                     
-                    let localDrug = LocalDrug(name: name, dose: dose, time: time, quantity: quantity, date: date)
+                    let localDrug = LocalDrug(name: name, dose: dose, time: time, quantity: quantity, date: date, isPill: isPill)
                     drugs.append(localDrug)
                 }
             }

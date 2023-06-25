@@ -11,7 +11,7 @@ import Lottie
 import UserNotifications
 
 protocol AddDrugDelegate: AnyObject {
-    func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?, date: Date?)
+    func didAddDrug(drug: String, dosageText: String?, timeText: String?, pillsOrSpoonText: String?, date: Date?, isPill: Bool?)
 }
 
 class AddDrugViewController: UIViewController {
@@ -93,7 +93,8 @@ class AddDrugViewController: UIViewController {
                                                dosageText: self?.dosageTextfield.text,
                                                timeText: self?.timeLabel.text,
                                                pillsOrSpoonText: self?.counterLabel.text,
-                                               date: self?.selectedDate)
+                                               date: self?.selectedDate,
+                                               isPill: self?.segmentRoute.selectedSegmentIndex == 0)
                     self?.navigationController?.popViewController(animated: true)
                 case .failure(let error):
                     DispatchQueue.main.async {
@@ -141,13 +142,13 @@ class AddDrugViewController: UIViewController {
                if sender.tag == 1 {
                    let selectedDate = self.myDatePicker.date
                    self.dateLabel.text = formatter.string(from: selectedDate)
-                   self.scheduleNotification(date: selectedDate, message: "Vous avez des médicaments à prendre")
+//                   self.scheduleNotification(date: selectedDate, message: "Rappel ⏰: Vous avez des médicaments à prendre 💊")
                } else if sender.tag == 2 {
                    let selectedTime = self.timePicker.date
                    let selectedTimeFormatted = formatter.string(from: selectedTime)
                    
                    self.timeLabel.text = selectedTimeFormatted
-                   self.scheduleNotification(date: selectedTime, message: "Vous avez des médicaments à prendre")
+                   self.scheduleNotification(date: selectedTime, message: "Rappel ⏰: Vous avez des médicaments à prendre 💊")
                }
            }))
            

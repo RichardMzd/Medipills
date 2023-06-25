@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Lottie
+import UserNotifications
 
 extension AddDrugViewController {
     // Method to detect error in API Call request
@@ -60,17 +61,9 @@ extension AddDrugViewController {
         content.sound = .default
         
         let calendar = Calendar.current
-        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-        let timeComponents = calendar.dateComponents([.hour, .minute], from: date)
+        let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         
-        var combinedComponents = DateComponents()
-        combinedComponents.year = dateComponents.year
-        combinedComponents.month = dateComponents.month
-        combinedComponents.day = dateComponents.day
-        combinedComponents.hour = timeComponents.hour
-        combinedComponents.minute = timeComponents.minute
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: combinedComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         
         let request = UNNotificationRequest(identifier: "notificationIdentifier", content: content, trigger: trigger)
         
@@ -82,6 +75,7 @@ extension AddDrugViewController {
             }
         }
     }
+
 }
 
 extension HomeViewController {
