@@ -27,7 +27,7 @@ final class CoreDataTestCase: XCTestCase {
         
         func testSaveDrugToDatabase() {
             // Create a test LocalDrug object
-            let localDrug = LocalDrug(name: "Drug", dose: "10mg", time: "14:30", quantity: "1", date: Date())
+            let localDrug = LocalDrug(name: "Drug", dose: "10mg", time: "14:30", quantity: "1", date: Date(), isPill: Bool())
             
             // Call the method saveDrugToDatabase
             coreDataManager.saveDrugToDatabase(localDrug: localDrug)
@@ -41,7 +41,7 @@ final class CoreDataTestCase: XCTestCase {
         
         func testDeleteDrugFromDatabase() {
             // Create a test LocalDrug object
-            let localDrug = LocalDrug(name: "Drug", dose: "10mg", time: "14:30", quantity: "1", date: Date())
+            let localDrug = LocalDrug(name: "Drug", dose: "10mg", time: "14:30", quantity: "1", date: Date(), isPill: Bool())
             
             // Register the drug in the database
             coreDataManager.saveDrugToDatabase(localDrug: localDrug)
