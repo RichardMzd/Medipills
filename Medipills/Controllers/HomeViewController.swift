@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     
     //  MARK: - Propreties
     
-    let numberOfDates = 30 // Nombre total de dates à afficher
+    let numberOfDates = 30 // Total of dates to display
     
     var selectedDate: Date?
     var selectedCellIndex: Int?
@@ -104,7 +104,7 @@ class HomeViewController: UIViewController {
 //  Method to display
     private func updateSelectedDate() {
         guard let selectedCellIndex = selectedCellIndex else {
-            selectedDate = Date() // Utilise la date actuelle si aucun index de cellule n'est sélectionné
+            selectedDate = Date() // Use current date if no cell index is selected
             return
         }
         
@@ -222,7 +222,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         let calendar = Calendar.current
         var dateComponents = DateComponents()
-        dateComponents.day = indexPath.item // Ajoutez un jour à chaque index
+        dateComponents.day = indexPath.item // Add a day to each index
         
         if let date = calendar.date(byAdding: dateComponents, to: Date()) {
             let dateFormatter = DateFormatter()
@@ -242,8 +242,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.height // Utilisez la hauteur de la collectionView pour définir la largeur de la cellule
-        let height: CGFloat = selectedCellIndex == indexPath.item ? 50 : 50 // Hauteur souhaitée pour la cellule sélectionnée et les autres cellules
+        let width = collectionView.bounds.height
+        let height: CGFloat = selectedCellIndex == indexPath.item ? 50 : 50
         return CGSize(width: width, height: height)
     }
     
@@ -283,7 +283,7 @@ extension HomeViewController: AddDrugDelegate {
             coreDataManager?.saveDrugToDatabase(localDrug: newDrug)
         }
         
-        //  permet de postionner la cell sélectionner en fonction d'un nouveau médicament ajouter
+        //  Allows you to position the selected cell according to a new drug to be added
         if selectedDate == nil || !Calendar.current.isDate(date, inSameDayAs: selectedDate!) {
             selectedDate = date
             if let newIndex = calculateSelectedCellIndex(for: date) {

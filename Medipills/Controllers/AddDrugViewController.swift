@@ -96,9 +96,9 @@ class AddDrugViewController: UIViewController {
                                                date: self?.selectedDate,
                                                isPill: self?.segmentRoute.selectedSegmentIndex == 0)
                     self?.navigationController?.popViewController(animated: true)
-                case .failure(let error):
+                 case .failure:
                     DispatchQueue.main.async {
-                        self?.statusError(status: error, result: result)
+                        self?.noResultsFound()
                     }
                 }
             }
@@ -142,7 +142,6 @@ class AddDrugViewController: UIViewController {
                if sender.tag == 1 {
                    let selectedDate = self.myDatePicker.date
                    self.dateLabel.text = formatter.string(from: selectedDate)
-//                   self.scheduleNotification(date: selectedDate, message: "Rappel ⏰: Vous avez des médicaments à prendre 💊")
                } else if sender.tag == 2 {
                    let selectedTime = self.timePicker.date
                    let selectedTimeFormatted = formatter.string(from: selectedTime)
@@ -173,7 +172,6 @@ class AddDrugViewController: UIViewController {
     // MARK: - Methods
     
     private func showMessage(_ message: String) {
-        // Affichez le message d'erreur à l'utilisateur, par exemple :
         let alertController = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
@@ -279,15 +277,15 @@ class AddDrugViewController: UIViewController {
     }
     
     private func startTimer() {
-        // Arrêter la minuterie existante si elle est en cours
+        // Stop existing timer if running
         stopTimer()
         
-        // Démarrer une minuterie qui se déclenche toutes les secondes
+        // Start a timer that ticks every second
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
             self?.displayDateTime()
         }
         
-        // Mettre à jour immédiatement l'affichage de l'heure
+        // Immediately update the time display
         displayDateTime()
     }
     

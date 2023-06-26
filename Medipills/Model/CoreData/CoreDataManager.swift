@@ -27,7 +27,7 @@ final class CoreDataManager {
         return favoritesRecipes
     }
     
-    // Enregistre un médicament dans la base de données CoreData
+    // Registers a drug in the CoreData database
       func saveDrugToDatabase(localDrug: LocalDrug) {
           let managedContext = coreDataStack.persistentContainer.viewContext
           let entity = NSEntityDescription.entity(forEntityName: "Drug", in: managedContext)!
@@ -47,7 +47,7 @@ final class CoreDataManager {
           }
       }
     
-    // Récupère tous les médicaments de la base de données CoreData
+    // Retrieves all drugs from CoreData database
     func fetchDrugsFromDatabase() -> [LocalDrug] {
         var drugs = [LocalDrug]()
         
@@ -79,7 +79,7 @@ final class CoreDataManager {
     }
 
     
-    // Supprime un médicament de la base de données CoreData
+    // Deletes a drug from the CoreData database
     func deleteDrugFromDatabase(localDrug: LocalDrug) {
         let managedContext = coreDataStack.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Drug")

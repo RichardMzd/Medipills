@@ -30,20 +30,20 @@ extension AddDrugViewController {
         let calendar = Calendar.current
         var currentDate = Date()
         
-        // Récupérer les composants de l'heure actuelle
+        // Retrieve current time components
         let currentHour = calendar.component(.hour, from: currentDate)
         let currentMinute = calendar.component(.minute, from: currentDate)
         
-        // Arrondir les minutes vers le haut à l'intervalle de 5 minutes suivant
+        // Round minutes up to the next 5 minute interval
         let roundedMinutes = Int(ceil(Double(currentMinute) / 5.0) * 5.0)
         currentDate = calendar.date(bySettingHour: currentHour, minute: roundedMinutes, second: 0, of: currentDate) ?? currentDate
         
-        // Formatter pour l'affichage de la date
+        // Format for date display
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.locale = Locale(identifier: "fr_FR")
         
-        // Formatter pour l'affichage de l'heure
+        // Format for time display
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         
