@@ -97,9 +97,7 @@ class AddDrugViewController: UIViewController {
                                                isPill: self?.segmentRoute.selectedSegmentIndex == 0)
                     self?.navigationController?.popViewController(animated: true)
                  case .failure:
-                    DispatchQueue.main.async {
                         self?.noResultsFound()
-                    }
                 }
             }
     }

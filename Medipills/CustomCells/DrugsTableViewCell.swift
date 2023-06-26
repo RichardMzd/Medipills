@@ -14,9 +14,7 @@ class DrugsTableViewCell: UITableViewCell {
     @IBOutlet private weak var time: UILabel!
     @IBOutlet private weak var pillsOrSpoon: UILabel!
     @IBOutlet private weak var drugIcon: UIImageView!
-    
-    var segmentTitle: String?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
     }

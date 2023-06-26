@@ -78,7 +78,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tableau de bord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWW-IB-xoc">
                                 <rect key="frame" x="20" y="103" width="390" height="60"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="35"/>
-                                <color key="textColor" red="0.1141156629" green="0.083968527619999997" blue="0.3725717664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.11372549019607843" green="0.082352941176470587" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdo-ZF-gEw" userLabel="Main View">
@@ -444,7 +444,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <namedColor name="Color">
-            <color red="0.3919999897480011" green="0.8529999852180481" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.39200000000000002" green="0.85499999999999998" blue="0.70999999999999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
