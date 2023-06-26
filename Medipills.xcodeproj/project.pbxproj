@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530D31492A4983BB00D2E644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530D31482A4983BB00D2E644 /* Assets.xcassets */; };
 		533B91632A4217B2000CA9C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53B604572A40BB4200AC6987 /* GoogleService-Info.plist */; };
 		535C576E29FBEF21007E8827 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C576D29FBEF21007E8827 /* ErrorAPI.swift */; };
 		537EFDDF2A17C22F004E5152 /* DrugsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */; };
@@ -33,7 +34,6 @@
 		53B394B1296F398100EA5A32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B0296F398100EA5A32 /* SceneDelegate.swift */; };
 		53B394B3296F398100EA5A32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B394B2296F398100EA5A32 /* HomeViewController.swift */; };
 		53B394B6296F398100EA5A32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B4296F398100EA5A32 /* Main.storyboard */; };
-		53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B7296F398300EA5A32 /* Assets.xcassets */; };
 		53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */; };
 		53B5EBA02A1685E00063E57D /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */; };
 		53C0841C29FFC81D00121884 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0841B29FFC81D00121884 /* Extensions.swift */; };
@@ -52,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		530D31482A4983BB00D2E644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		535C576D29FBEF21007E8827 /* ErrorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
 		537EFDDD2A17C22F004E5152 /* DrugsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsTableViewCell.swift; sourceTree = "<group>"; };
 		537EFDDE2A17C22F004E5152 /* DrugsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrugsTableViewCell.xib; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		53B394B0296F398100EA5A32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		53B394B2296F398100EA5A32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		53B394B5296F398100EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		53B394B7296F398300EA5A32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53B394BA296F398300EA5A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53B394BC296F398300EA5A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53B5EB9F2A1685E00063E57D /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -187,9 +187,9 @@
 				53B394AE296F398100EA5A32 /* AppDelegate.swift */,
 				53B394B0296F398100EA5A32 /* SceneDelegate.swift */,
 				53B394B4296F398100EA5A32 /* Main.storyboard */,
-				53B394B7296F398300EA5A32 /* Assets.xcassets */,
 				53B394B9296F398300EA5A32 /* LaunchScreen.storyboard */,
 				53AC7B6C2A3D1C3100EC86A2 /* Comfortaa.ttf */,
+				530D31482A4983BB00D2E644 /* Assets.xcassets */,
 				53B394BC296F398300EA5A32 /* Info.plist */,
 			);
 			path = Medipills;
@@ -328,12 +328,12 @@
 			files = (
 				533B91632A4217B2000CA9C5 /* GoogleService-Info.plist in Resources */,
 				53AC7B672A3CA69E00EC86A2 /* completing-tasks.json in Resources */,
+				530D31492A4983BB00D2E644 /* Assets.xcassets in Resources */,
 				53AC7B652A3CA67800EC86A2 /* blue_pill.json in Resources */,
 				53AC7B6D2A3D1C3100EC86A2 /* Comfortaa.ttf in Resources */,
 				53AC7B692A3CA6BA00EC86A2 /* syrup.json in Resources */,
 				53B394BB296F398300EA5A32 /* LaunchScreen.storyboard in Resources */,
 				53AC7B632A3CA65300EC86A2 /* medicine.json in Resources */,
-				53B394B8296F398300EA5A32 /* Assets.xcassets in Resources */,
 				53B394B6296F398100EA5A32 /* Main.storyboard in Resources */,
 				537EFDE02A17C22F004E5152 /* DrugsTableViewCell.xib in Resources */,
 				53AC7B6B2A3CA6E300EC86A2 /* medic.json in Resources */,

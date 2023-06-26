@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,19 +27,29 @@
                                 <color key="textColor" red="0.1141156629" green="0.083968527619999997" blue="0.3725717664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="iconPills" translatesAutoresizingMaskIntoConstraints="NO" id="ZAe-p5-PTg">
+                                <rect key="frame" x="75" y="263" width="243" height="198"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.51559609169999998" green="0.84517955779999998" blue="0.71763318779999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZAe-p5-PTg" secondAttribute="trailing" constant="75" id="3bz-Wq-qjk"/>
+                            <constraint firstItem="ZAe-p5-PTg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="204" id="SMP-5N-1dd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yMA-v5-UPi" secondAttribute="trailing" constant="100" id="Ze3-lJ-gDG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yMA-v5-UPi" secondAttribute="bottom" constant="250" id="bZH-li-D1C"/>
+                            <constraint firstItem="yMA-v5-UPi" firstAttribute="top" secondItem="ZAe-p5-PTg" secondAttribute="bottom" constant="66.670000000000002" id="tWu-F4-a1b"/>
                             <constraint firstItem="yMA-v5-UPi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="zcM-b2-eP4"/>
+                            <constraint firstItem="ZAe-p5-PTg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="zfO-vf-nBs"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconPills" width="512" height="512"/>
+    </resources>
 </document>
