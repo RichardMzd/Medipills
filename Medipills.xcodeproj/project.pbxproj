@@ -19,7 +19,6 @@
 		53AC7B592A3C848B00EC86A2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B582A3C848B00EC86A2 /* FirebaseAnalytics */; };
 		53AC7B5B2A3C848B00EC86A2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B5A2A3C848B00EC86A2 /* FirebaseCrashlytics */; };
 		53AC7B5E2A3C849D00EC86A2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B5D2A3C849D00EC86A2 /* Lottie */; };
-		53AC7B612A3C84AD00EC86A2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 53AC7B602A3C84AD00EC86A2 /* Alamofire */; };
 		53AC7B632A3CA65300EC86A2 /* medicine.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B622A3CA65300EC86A2 /* medicine.json */; };
 		53AC7B652A3CA67800EC86A2 /* blue_pill.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B642A3CA67700EC86A2 /* blue_pill.json */; };
 		53AC7B672A3CA69E00EC86A2 /* completing-tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AC7B662A3CA69D00EC86A2 /* completing-tasks.json */; };
@@ -99,7 +98,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53AC7B592A3C848B00EC86A2 /* FirebaseAnalytics in Frameworks */,
-				53AC7B612A3C84AD00EC86A2 /* Alamofire in Frameworks */,
 				53AC7B5B2A3C848B00EC86A2 /* FirebaseCrashlytics in Frameworks */,
 				53AC7B5E2A3C849D00EC86A2 /* Lottie in Frameworks */,
 			);
@@ -265,7 +263,6 @@
 				53AC7B582A3C848B00EC86A2 /* FirebaseAnalytics */,
 				53AC7B5A2A3C848B00EC86A2 /* FirebaseCrashlytics */,
 				53AC7B5D2A3C849D00EC86A2 /* Lottie */,
-				53AC7B602A3C84AD00EC86A2 /* Alamofire */,
 			);
 			productName = Medipills;
 			productReference = 53B394AB296F398100EA5A32 /* Medipills.app */;
@@ -302,7 +299,6 @@
 			packageReferences = (
 				53AC7B572A3C848B00EC86A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				53AC7B5C2A3C849D00EC86A2 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				53AC7B5F2A3C84AD00EC86A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 53B394AC296F398100EA5A32 /* Products */;
 			projectDirPath = "";
@@ -699,14 +695,6 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		53AC7B5F2A3C84AD00EC86A2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -724,11 +712,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53AC7B5C2A3C849D00EC86A2 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
-		};
-		53AC7B602A3C84AD00EC86A2 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 53AC7B5F2A3C84AD00EC86A2 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 
